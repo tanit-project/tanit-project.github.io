@@ -1,0 +1,44 @@
+---
+import { Icon } from 'astro-icon/components';
+
+const features = [
+  { title: "AI Magic", description: "Vision-Language Models analyze your image to write captions and create designs.", icon: "ph:magic-wand", size: "large" },
+  { title: "Smart Scheduling", description: "Automated posting at the best times via Instagram Graph API.", icon: "ph:calendar-check", size: "normal" },
+  { title: "WhatsApp Bot", description: "Just send a photo to our WhatsApp bot and get your post ready.", icon: "ph:whatsapp-logo", size: "normal" },
+  { title: "Event Radar", description: "Never miss a holiday. Content suggestions for special days.", icon: "ph:calendar-star", size: "normal" }
+];
+---
+
+<section id="features" class="py-20 md:py-28 relative overflow-hidden">
+  <div class="absolute inset-0 bg-gradient-to-b from-transparent via-tanit-purple/5 to-transparent"></div>
+  
+  <div class="container-custom relative">
+    <div class="text-center max-w-3xl mx-auto mb-16">
+      <div class="animate-on-scroll delay-0 inline-flex items-center gap-2 px-4 py-2 glass-light rounded-full mb-6">
+        <Icon name="ph:sparkle" class="h-4 w-4 text-tanit-purple" />
+        <span class="text-sm font-medium text-tanit-text-muted">Powerful Features</span>
+      </div>
+      <h2 class="animate-on-scroll delay-1 text-3xl md:text-4xl lg:text-5xl font-bold text-tanit-text">
+        Everything you need to <span class="gradient-text">dominate</span> social media
+      </h2>
+    </div>
+    
+    <div class="bento-grid">
+      {features.map((feature, index) => (
+        <div class={`bento-card animate-on-scroll delay-${index + 2} ${feature.size === 'large' ? 'bento-large' : ''} group`}>
+          <div class="w-14 h-14 rounded-2xl bg-tanit-purple/20 flex items-center justify-center mb-6 transition-all duration-300 group-hover:bg-tanit-purple group-hover:shadow-glow-md">
+            <Icon name={feature.icon} class="h-7 w-7 text-tanit-purple group-hover:text-white transition-colors" />
+          </div>
+          <h3 class="text-xl md:text-2xl font-bold text-tanit-text mb-3">{feature.title}</h3>
+          <p class="text-tanit-text-muted leading-relaxed">{feature.description}</p>
+          {feature.size === 'large' && (
+            <div class="mt-8 grid grid-cols-2 gap-4">
+              <div class="p-4 glass-light rounded-xl"><Icon name="ph:brain" class="h-6 w-6 text-tanit-purple mb-2" /><p class="text-sm text-tanit-text-muted">GPT-4 Vision</p></div>
+              <div class="p-4 glass-light rounded-xl"><Icon name="ph:image" class="h-6 w-6 text-tanit-purple mb-2" /><p class="text-sm text-tanit-text-muted">Flux AI</p></div>
+            </div>
+          )}
+        </div>
+      ))}
+    </div>
+  </div>
+</section>

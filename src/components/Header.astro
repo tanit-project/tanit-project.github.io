@@ -2,47 +2,59 @@
 import { Icon } from 'astro-icon/components';
 
 const navItems = [
-  { name: 'Features', href: '#how-it-works' },
+  { name: 'Features', href: '#features' },
+  { name: 'How it Works', href: '#how-it-works' },
   { name: 'Team', href: '#team' },
 ];
 ---
 
-<header class="sticky top-0 z-50 w-full bg-white/80 backdrop-blur-md border-b border-gray-100" role="banner">
+<header class="fixed top-0 z-50 w-full bg-tanit-bg/80 backdrop-blur-xl border-b border-white/5" role="banner">
   <div class="container-custom flex items-center justify-between h-20">
-    <a href="/" class="flex items-center gap-2 transition-transform duration-300 hover:scale-105 focus:scale-105 focus:outline-none focus:ring-2 focus:ring-payflo-purple focus:ring-offset-2 rounded" aria-label="TANIT home">
-      <div class="h-10 w-10 rounded-lg bg-gradient-to-r from-payflo-purple to-payflo-blue flex items-center justify-center">
-        <Icon name="ph:star" class="h-6 w-6 text-white" />
-      </div>
-      <span class="text-2xl font-bold gradient-text">TANIT</span>
+    <a href="/" class="flex items-center transition-transform duration-300 hover:scale-105 focus:outline-none focus:ring-2 focus:ring-tanit-purple focus:ring-offset-2 focus:ring-offset-tanit-bg rounded-lg" aria-label="TANIT home">
+      <img src="/tanit-logo.svg" alt="TANIT" class="h-16" />
     </a>
     
-    <!-- Desktop Nav -->
-    <!-- <nav class="hidden md:flex items-center space-x-8" role="navigation" aria-label="Main navigation">
+    <nav class="hidden md:flex items-center space-x-8" role="navigation" aria-label="Main navigation">
       {navItems.map(item => (
-        <a 
-          href={item.href} 
-          class="text-gray-700 hover:text-payflo-purple focus:text-payflo-purple transition-all duration-300 focus:outline-none focus:ring-2 focus:ring-payflo-purple focus:ring-offset-2 rounded px-2 py-1"
-        >
+        <a href={item.href} class="text-tanit-text-muted hover:text-tanit-text transition-all duration-300 font-medium">
           {item.name}
         </a>
       ))}
-    </nav> -->
+    </nav>
     
     <div class="flex items-center space-x-4">
-      <a href="https://github.com/tanit-project/" target="_blank" rel="noopener noreferrer" class="hidden md:inline-flex items-center gap-2 text-payflo-dark hover:text-payflo-purple focus:text-payflo-purple transition-all duration-300 focus:outline-none focus:ring-2 focus:ring-payflo-purple focus:ring-offset-2 rounded px-3 py-2">
+      <!-- Reports Dropdown -->
+      <div class="hidden md:block relative group">
+        <button class="inline-flex items-center gap-2 text-tanit-text-muted hover:text-tanit-text transition-all duration-300 px-3 py-2 rounded-lg hover:bg-white/5">
+          <Icon name="ph:file-text" class="h-5 w-5" />
+          <span>Reports</span>
+          <Icon name="ph:caret-down" class="h-4 w-4" />
+        </button>
+        <div class="absolute right-0 mt-2 w-72 glass-card p-2 opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-200 z-50">
+          <a href="https://docs.google.com/viewer?url=https://tanit-project.github.io/reports/T2530_Analysis_and_Requirements_Report.docx" target="_blank" rel="noopener noreferrer" class="flex items-center gap-3 p-3 rounded-lg hover:bg-white/10 transition-colors">
+            <Icon name="ph:file-text" class="h-5 w-5 text-tanit-purple" />
+            <div>
+              <p class="text-sm text-tanit-text font-medium">Analysis & Requirements</p>
+              <p class="text-xs text-tanit-text-muted">T2530 Report</p>
+            </div>
+          </a>
+          <a href="https://docs.google.com/viewer?url=https://tanit-project.github.io/reports/T2530_Project_Specification_Document.docx" target="_blank" rel="noopener noreferrer" class="flex items-center gap-3 p-3 rounded-lg hover:bg-white/10 transition-colors">
+            <Icon name="ph:file-text" class="h-5 w-5 text-tanit-purple" />
+            <div>
+              <p class="text-sm text-tanit-text font-medium">Project Specification</p>
+              <p class="text-xs text-tanit-text-muted">T2530 Document</p>
+            </div>
+          </a>
+        </div>
+      </div>
+      
+      <a href="https://github.com/tanit-project/" target="_blank" rel="noopener noreferrer" class="hidden md:inline-flex items-center gap-2 text-tanit-text-muted hover:text-tanit-text transition-all duration-300 px-3 py-2 rounded-lg hover:bg-white/5">
         <Icon name="ph:github-logo" class="h-5 w-5" />
         <span>GitHub</span>
       </a>
-      <a href="#team" class="btn btn-primary focus:outline-none focus:ring-2 focus:ring-payflo-purple focus:ring-offset-2">View Team</a>
+      <a href="#features" class="btn btn-glow px-6 py-2.5 text-sm">Get Started Free</a>
       
-      <!-- Mobile Menu Button -->
-      <button 
-        id="menu-toggle" 
-        class="md:hidden flex items-center transition-transform duration-300 focus:outline-none focus:ring-2 focus:ring-payflo-purple focus:ring-offset-2 rounded p-1" 
-        aria-label="Toggle navigation menu"
-        aria-expanded="false"
-        aria-controls="mobile-menu"
-      >
+      <button id="menu-toggle" class="md:hidden flex items-center p-2 text-tanit-text-muted hover:text-tanit-text transition-colors rounded-lg hover:bg-white/5" aria-label="Toggle navigation menu" aria-expanded="false" aria-controls="mobile-menu">
         <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor" aria-hidden="true">
           <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16" />
         </svg>
@@ -50,19 +62,22 @@ const navItems = [
     </div>
   </div>
   
-  <!-- Mobile Menu -->
-  <nav id="mobile-menu" class="hidden md:hidden bg-white w-full border-t border-gray-100" role="navigation" aria-label="Mobile navigation">
-    <div class="container-custom py-4 space-y-4">
-      {navItems.map((item, index) => (
-        <a 
-          href={item.href} 
-          class="block py-2 px-2 text-gray-700 hover:text-payflo-purple focus:text-payflo-purple transition-all duration-300 focus:outline-none focus:ring-2 focus:ring-payflo-purple focus:ring-offset-2 rounded"
-          style={`transition-delay: ${index * 50}ms;`}
-        >
+  <nav id="mobile-menu" class="hidden md:hidden bg-tanit-bg/95 backdrop-blur-xl w-full border-t border-white/5" role="navigation" aria-label="Mobile navigation">
+    <div class="container-custom py-6 space-y-4">
+      {navItems.map((item) => (
+        <a href={item.href} class="block py-3 px-4 text-tanit-text-muted hover:text-tanit-text hover:bg-white/5 rounded-lg transition-all duration-300">
           {item.name}
         </a>
       ))}
-      <a href="https://github.com/tanit-project/" target="_blank" rel="noopener noreferrer" class="block py-2 px-2 text-gray-700 hover:text-payflo-purple focus:text-payflo-purple transition-all duration-300 focus:outline-none focus:ring-2 focus:ring-payflo-purple focus:ring-offset-2 rounded">GitHub</a>
+      <div class="border-t border-white/10 pt-4 mt-4">
+        <p class="px-4 text-xs text-tanit-text-muted uppercase tracking-wider mb-2">Reports</p>
+        <a href="https://docs.google.com/viewer?url=https://tanit-project.github.io/reports/T2530_Analysis_and_Requirements_Report.docx" target="_blank" rel="noopener noreferrer" class="block py-3 px-4 text-tanit-text-muted hover:text-tanit-text hover:bg-white/5 rounded-lg transition-all duration-300">
+          Analysis & Requirements
+        </a>
+        <a href="https://docs.google.com/viewer?url=https://tanit-project.github.io/reports/T2530_Project_Specification_Document.docx" target="_blank" rel="noopener noreferrer" class="block py-3 px-4 text-tanit-text-muted hover:text-tanit-text hover:bg-white/5 rounded-lg transition-all duration-300">
+          Project Specification
+        </a>
+      </div>
     </div>
   </nav>
 </header>
@@ -74,8 +89,18 @@ const navItems = [
     
     menuToggle?.addEventListener('click', () => {
       mobileMenu?.classList.toggle('hidden');
+      mobileMenu?.classList.toggle('mobile-menu-open');
       const isExpanded = menuToggle.getAttribute('aria-expanded') === 'true';
       menuToggle.setAttribute('aria-expanded', String(!isExpanded));
+    });
+
+    const header = document.querySelector('header');
+    window.addEventListener('scroll', () => {
+      if (window.scrollY > 50) {
+        header?.classList.add('scrolled');
+      } else {
+        header?.classList.remove('scrolled');
+      }
     });
   });
 </script>

@@ -15,12 +15,13 @@ export default defineConfig({
       include: {
         ph: [
           "star-duotone",
-          // Added icons used across the TANIT site
+          // Core icons
           "star",
           "images",
           "image",
           "calendar",
           "calendar-check",
+          "calendar-star",
           "gift",
           "balloon",
           "cpu",
@@ -31,13 +32,43 @@ export default defineConfig({
           "github-logo",
           "linkedin-logo",
           "user",
+          "users-three",
           "envelope",
           "file-text",
+          "file-py",
           "projector-screen",
           "code",
           "video",
           "speaker-simple-high",
           "info",
+          // Animation & Action icons
+          "play",
+          "play-circle",
+          "rocket-launch",
+          "lightning",
+          "sparkle",
+          "magic-wand",
+          "caret-down",
+          "arrow-down",
+          "arrow-right",
+          "upload-simple",
+          "clock",
+          // UI icons
+          "x-circle",
+          "currency-dollar",
+          "paint-brush",
+          "brain",
+          "robot",
+          "atom",
+          "hash",
+          "text-aa",
+          "whatsapp-logo",
+          "instagram-logo",
+          "storefront",
+          "handbag",
+          "t-shirt",
+          "graduation-cap",
+          // Duotone variants
           "lightning-duotone",
           "globe-duotone",
           "users-duotone",
@@ -54,7 +85,6 @@ export default defineConfig({
           "github-logo-duotone",
           "currency-dollar-duotone",
           "arrow-left-duotone",
-          "arrow-right",
           "file-search",
           "layout-duotone",
           "calendar-duotone",
@@ -68,7 +98,14 @@ export default defineConfig({
           "lock-key-duotone",
           "certificate-duotone",
           "lifebuoy-duotone",
-          "handshake-duotone"
+          "handshake-duotone",
+          // Hero component icons
+          "cursor",
+          "dots-three",
+          "heart",
+          "chat-circle",
+          "paper-plane-tilt",
+          "bookmark-simple"
         ]
       }
     }),

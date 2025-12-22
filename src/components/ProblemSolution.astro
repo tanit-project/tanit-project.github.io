@@ -1,0 +1,42 @@
+---
+import { Icon } from 'astro-icon/components';
+---
+
+<section class="py-20 md:py-28 relative overflow-hidden">
+  <div class="container-custom">
+    <div class="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
+      <div class="animate-on-scroll delay-0">
+        <div class="glass-card p-8 md:p-10 border-red-500/20 hover:border-red-500/40">
+          <div class="flex items-center gap-3 mb-6">
+            <div class="w-12 h-12 rounded-xl bg-red-500/20 flex items-center justify-center">
+              <Icon name="ph:x-circle" class="h-6 w-6 text-red-400" />
+            </div>
+            <span class="text-sm font-semibold text-red-400 uppercase tracking-wider">The Problem</span>
+          </div>
+          <h3 class="text-2xl md:text-3xl font-bold text-tanit-text mb-4">Managing social media takes <span class="text-red-400">hours</span>.</h3>
+          <ul class="space-y-4 text-tanit-text-muted">
+            <li class="flex items-start gap-3"><Icon name="ph:clock" class="h-5 w-5 text-red-400 flex-shrink-0 mt-0.5" /><span>Hours spent creating content every week</span></li>
+            <li class="flex items-start gap-3"><Icon name="ph:currency-dollar" class="h-5 w-5 text-red-400 flex-shrink-0 mt-0.5" /><span>Expensive agencies charge thousands</span></li>
+            <li class="flex items-start gap-3"><Icon name="ph:paint-brush" class="h-5 w-5 text-red-400 flex-shrink-0 mt-0.5" /><span>Design skills required but you don't have them</span></li>
+          </ul>
+        </div>
+      </div>
+      
+      <div class="animate-on-scroll delay-2">
+        <div class="glass-card p-8 md:p-10 border-green-500/20 hover:border-green-500/40">
+          <div class="flex items-center gap-3 mb-6">
+            <div class="w-12 h-12 rounded-xl bg-green-500/20 flex items-center justify-center">
+              <Icon name="ph:check-circle" class="h-6 w-6 text-green-400" />
+            </div>
+            <span class="text-sm font-semibold text-green-400 uppercase tracking-wider">The Solution</span>
+          </div>
+          <h3 class="text-2xl md:text-3xl font-bold text-tanit-text mb-4">TANIT handles <span class="gradient-text">everything</span>.</h3>
+          <ul class="space-y-4 text-tanit-text-muted">
+            <li class="flex items-start gap-3"><Icon name="ph:magic-wand" class="h-5 w-5 text-tanit-purple flex-shrink-0 mt-0.5" /><span><strong class="text-tanit-text">Design:</strong> AI creates visuals instantly</span></li>
+            <li class="flex items-start gap-3"><Icon name="ph:calendar-check" class="h-5 w-5 text-green-400 flex-shrink-0 mt-0.5" /><span><strong class="text-tanit-text">Scheduling:</strong> Posts at the best time</span></li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>

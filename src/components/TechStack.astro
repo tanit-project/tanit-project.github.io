@@ -1,0 +1,39 @@
+---
+import { Icon } from 'astro-icon/components';
+
+const techStack = [
+  { name: "Python", icon: "ph:file-py" },
+  { name: "FastAPI", icon: "ph:lightning" },
+  { name: "React", icon: "ph:atom" },
+  { name: "Instagram", icon: "ph:instagram-logo" },
+  { name: "OpenAI", icon: "ph:brain" }
+];
+---
+
+<section class="py-20 md:py-28 relative overflow-hidden">
+  <div class="absolute inset-0 bg-gradient-to-t from-tanit-purple/5 via-transparent to-transparent"></div>
+  
+  <div class="container-custom relative">
+    <div class="glass-card p-8 md:p-12 text-center max-w-4xl mx-auto">
+      <div class="animate-on-scroll delay-0 inline-flex items-center gap-2 px-4 py-2 glass-light rounded-full mb-6">
+        <Icon name="ph:graduation-cap" class="h-4 w-4 text-tanit-purple" />
+        <span class="text-sm font-medium text-tanit-text-muted">Academic Project</span>
+      </div>
+      <h2 class="animate-on-scroll delay-1 text-2xl md:text-3xl font-bold text-tanit-text mb-4">CS 491 Senior Design Project</h2>
+      <p class="animate-on-scroll delay-2 text-lg text-tanit-text-muted mb-8 max-w-2xl mx-auto">
+        Developed at <strong class="text-tanit-text">Bilkent University</strong> as part of the Computer Science Senior Design course.
+      </p>
+      <div class="animate-on-scroll delay-3">
+        <p class="text-sm font-medium text-tanit-text-muted mb-4">Built with</p>
+        <div class="flex flex-wrap justify-center gap-4">
+          {techStack.map((tech) => (
+            <div class="tech-logo flex flex-col items-center gap-2">
+              <Icon name={tech.icon} class="h-8 w-8 text-tanit-text" />
+              <span class="text-xs text-tanit-text-muted">{tech.name}</span>
+            </div>
+          ))}
+        </div>
+      </div>
+    </div>
+  </div>
+</section>

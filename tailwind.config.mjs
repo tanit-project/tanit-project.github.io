@@ -1,59 +1,47 @@
 /** @type {import('tailwindcss').Config} */
 export default {
-  content: ['./src/**/*.{astro,html,js,jsx,md,mdx,svelte,ts,tsx,vue}'],
-  theme: {
-    extend: {
-      colors: {
-        'payflo-purple': '#7928CA',
-        'payflo-blue': '#0070F3',
-        'payflo-pink': '#FF4D4D',
-        'payflo-gray': '#F4F7FA',
-        'payflo-dark': '#111111',
-      },
-      fontFamily: {
-        sans: ['Inter Variable', 'sans-serif'],
-      },
-      animation: {
-        'fade-in': 'fadeIn 0.5s ease-in-out forwards',
-        'slide-up': 'slideUp 0.6s ease-out forwards',
-        'slide-in-right': 'slideInRight 0.5s ease-out forwards',
-        'gradient-x': 'gradientX 3s ease infinite',
-        'pulse': 'pulse 2s cubic-bezier(0.4, 0, 0.6, 1) infinite',
-        'bounce': 'bounce 1s infinite',
-      },
-      keyframes: {
-        fadeIn: {
-          '0%': { opacity: '0' },
-          '100%': { opacity: '1' },
+    content: ['./src/**/*.{astro,html,js,jsx,md,mdx,svelte,ts,tsx,vue}'],
+    theme: {
+        extend: {
+            colors: {
+                'tanit-bg': '#0a0a0f',
+                'tanit-card': '#12121a',
+                'tanit-border': '#1f1f2e',
+                'tanit-purple': '#AD65BF',
+                'tanit-purple-dark': '#8B4F9C',
+                'tanit-light': '#F1F1F1',
+                'tanit-dark': '#000000',
+                'tanit-text': '#F1F1F1',
+                'tanit-text-muted': '#94a3b8',
+                'payflo-purple': '#AD65BF',
+                'payflo-blue': '#AD65BF',
+                'payflo-pink': '#AD65BF',
+                'payflo-gray': '#1e1e2e',
+                'payflo-dark': '#0a0a0f',
+            },
+            fontFamily: {
+                sans: ['Inter Variable', 'sans-serif'],
+            },
+            animation: {
+                'fade-in': 'fadeIn 0.5s ease-in-out forwards',
+                'slide-up': 'slideUp 0.6s ease-out forwards',
+                'pulse-glow': 'pulseGlow 2s cubic-bezier(0.4, 0, 0.6, 1) infinite',
+                'float': 'float 6s ease-in-out infinite',
+            },
+            keyframes: {
+                fadeIn: { '0%': { opacity: '0' }, '100%': { opacity: '1' } },
+                slideUp: { '0%': { transform: 'translateY(30px)', opacity: '0' }, '100%': { transform: 'translateY(0)', opacity: '1' } },
+                pulseGlow: {
+                    '0%, 100%': { boxShadow: '0 0 20px rgba(173, 101, 191, 0.5), 0 0 40px rgba(173, 101, 191, 0.3)' },
+                    '50%': { boxShadow: '0 0 40px rgba(173, 101, 191, 0.8), 0 0 60px rgba(173, 101, 191, 0.5)' },
+                },
+                float: { '0%, 100%': { transform: 'translateY(0px)' }, '50%': { transform: 'translateY(-20px)' } },
+            },
+            boxShadow: {
+                'glow-sm': '0 0 15px rgba(173, 101, 191, 0.3)',
+                'glow-md': '0 0 30px rgba(173, 101, 191, 0.4)',
+            },
         },
-        slideUp: {
-          '0%': { transform: 'translateY(30px)', opacity: '0' },
-          '100%': { transform: 'translateY(0)', opacity: '1' },
-        },
-        slideInRight: {
-          '0%': { transform: 'translateX(50px)', opacity: '0' },
-          '100%': { transform: 'translateX(0)', opacity: '1' },
-        },
-        gradientX: {
-          '0%, 100%': { 'background-position': '0% 50%' },
-          '50%': { 'background-position': '100% 50%' },
-        },
-        pulse: {
-          '0%, 100%': { opacity: '1' },
-          '50%': { opacity: '0.5' },
-        },
-        bounce: {
-          '0%, 100%': {
-            transform: 'translateY(-25%)',
-            animationTimingFunction: 'cubic-bezier(0.8, 0, 1, 1)',
-          },
-          '50%': {
-            transform: 'translateY(0)',
-            animationTimingFunction: 'cubic-bezier(0, 0, 0.2, 1)',
-          },
-        },
-      },
     },
-  },
-  plugins: [],
+    plugins: [],
 }
