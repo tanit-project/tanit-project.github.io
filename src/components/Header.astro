@@ -45,13 +45,39 @@ const navItems = [
               <p class="text-xs text-tanit-text-muted">T2530 Document</p>
             </div>
           </a>
+          <a href="https://drive.google.com/file/d/1sqTrgV3whZkpVdAGqWBQKl3T6dXLqGZr/view?usp=sharing" target="_blank" rel="noopener noreferrer" class="flex items-center gap-3 p-3 rounded-lg hover:bg-white/10 transition-colors">
+            <Icon name="ph:file-text" class="h-5 w-5 text-tanit-purple" />
+            <div>
+              <p class="text-sm text-tanit-text font-medium">Detailed Design Report</p>
+              <p class="text-xs text-tanit-text-muted">Design Document</p>
+            </div>
+          </a>
         </div>
       </div>
       
-      <a href="https://github.com/tanit-project/" target="_blank" rel="noopener noreferrer" class="hidden md:inline-flex items-center gap-2 text-tanit-text-muted hover:text-tanit-text transition-all duration-300 px-3 py-2 rounded-lg hover:bg-white/5">
-        <Icon name="ph:github-logo" class="h-5 w-5" />
-        <span>GitHub</span>
-      </a>
+      <div class="hidden md:block relative group">
+        <button class="inline-flex items-center gap-2 text-tanit-text-muted hover:text-tanit-text transition-all duration-300 px-3 py-2 rounded-lg hover:bg-white/5">
+          <Icon name="ph:github-logo" class="h-5 w-5" />
+          <span>GitHub</span>
+          <Icon name="ph:caret-down" class="h-4 w-4" />
+        </button>
+        <div class="absolute right-0 mt-2 w-72 glass-card p-2 opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-200 z-50">
+          <a href="https://github.com/smyy1001/TANIT" target="_blank" rel="noopener noreferrer" class="flex items-center gap-3 p-3 rounded-lg hover:bg-white/10 transition-colors">
+            <Icon name="ph:github-logo" class="h-5 w-5 text-tanit-purple" />
+            <div>
+              <p class="text-sm text-tanit-text font-medium">Implementation</p>
+              <p class="text-xs text-tanit-text-muted">Core Repository</p>
+            </div>
+          </a>
+          <a href="https://github.com/tanit-project/" target="_blank" rel="noopener noreferrer" class="flex items-center gap-3 p-3 rounded-lg hover:bg-white/10 transition-colors">
+            <Icon name="ph:github-logo" class="h-5 w-5 text-tanit-purple" />
+            <div>
+              <p class="text-sm text-tanit-text font-medium">tanit-project.github.io</p>
+              <p class="text-xs text-tanit-text-muted">Website Repository</p>
+            </div>
+          </a>
+        </div>
+      </div>
       <a href="#features" class="btn btn-glow px-6 py-2.5 text-sm">Get Started Free</a>
       
       <button id="menu-toggle" class="md:hidden flex items-center p-2 text-tanit-text-muted hover:text-tanit-text transition-colors rounded-lg hover:bg-white/5" aria-label="Toggle navigation menu" aria-expanded="false" aria-controls="mobile-menu">
@@ -76,6 +102,18 @@ const navItems = [
         </a>
         <a href="https://docs.google.com/viewer?url=https://tanit-project.github.io/reports/T2530_Project_Specification_Document.docx" target="_blank" rel="noopener noreferrer" class="block py-3 px-4 text-tanit-text-muted hover:text-tanit-text hover:bg-white/5 rounded-lg transition-all duration-300">
           Project Specification
+        </a>
+        <a href="https://drive.google.com/file/d/1sqTrgV3whZkpVdAGqWBQKl3T6dXLqGZr/view?usp=sharing" target="_blank" rel="noopener noreferrer" class="block py-3 px-4 text-tanit-text-muted hover:text-tanit-text hover:bg-white/5 rounded-lg transition-all duration-300">
+          Detailed Design Report
+        </a>
+      </div>
+      <div class="border-t border-white/10 pt-4 mt-4">
+        <p class="px-4 text-xs text-tanit-text-muted uppercase tracking-wider mb-2">GitHub</p>
+        <a href="https://github.com/smyy1001/TANIT" target="_blank" rel="noopener noreferrer" class="block py-3 px-4 text-tanit-text-muted hover:text-tanit-text hover:bg-white/5 rounded-lg transition-all duration-300">
+          Implementation
+        </a>
+        <a href="https://github.com/tanit-project/" target="_blank" rel="noopener noreferrer" class="block py-3 px-4 text-tanit-text-muted hover:text-tanit-text hover:bg-white/5 rounded-lg transition-all duration-300">
+          tanit-project.github.io
         </a>
       </div>
     </div>
