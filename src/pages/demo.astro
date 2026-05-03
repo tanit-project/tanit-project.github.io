@@ -1,0 +1,1076 @@
+---
+import '../styles/global.css';
+---
+
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>TANIT — Interactive Demo</title>
+  <link rel="icon" href="/tanit-logo.svg" />
+</head>
+<body class="bg-tanit-bg text-tanit-text font-sans antialiased overflow-hidden" style="height:100dvh">
+
+  <!-- Demo Banner -->
+  <div id="demo-banner" class="fixed top-0 left-0 right-0 z-50 flex items-center justify-center bg-tanit-purple text-white text-sm font-medium" style="height:2.5rem">
+    🎮 Interactive Demo — explore freely, no account needed
+    <button id="close-banner" class="absolute right-4 text-white/70 hover:text-white text-xl leading-none" aria-label="Close banner">×</button>
+  </div>
+
+  <!-- App Shell -->
+  <div id="app" class="fixed left-0 right-0 bottom-0 flex flex-col" style="top:2.5rem">
+
+    <!-- App Header -->
+    <header class="flex-shrink-0 border-b border-tanit-border bg-tanit-card flex items-center px-4 gap-3 z-40" style="height:3.5rem">
+      <img src="/tanit-logo.svg" alt="TANIT" style="height:2rem" />
+      <div class="w-px bg-tanit-border mx-1 hidden md:block" style="height:1.5rem"></div>
+      <span class="text-xs font-semibold px-2 py-1 rounded-full hidden md:inline" style="background:rgba(173,101,191,0.18);color:#AD65BF">Demo Mode</span>
+      <div class="flex-1"></div>
+      <a href="/" class="flex items-center gap-1.5 text-xs transition-colors px-3 py-1.5 rounded-lg hover:bg-white/5" style="color:#94a3b8">
+        <svg xmlns="http://www.w3.org/2000/svg" style="height:1rem;width:1rem" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 19l-7-7m0 0l7-7m-7 7h18"/></svg>
+        Back to website
+      </a>
+    </header>
+
+    <!-- Body -->
+    <div class="flex flex-1 overflow-hidden">
+
+      <!-- Sidebar -->
+      <aside class="flex-shrink-0 border-r border-tanit-border bg-tanit-card flex flex-col" style="width:3.5rem" id="sidebar">
+        <nav class="flex-1 p-2 flex flex-col gap-1 mt-2">
+          <button id="nav-dashboard" data-nav="dashboard"
+            class="nav-btn w-full flex items-center gap-3 rounded-lg text-sm font-medium transition-colors active-nav"
+            style="padding:.625rem .75rem"
+            onclick="switchView('dashboard')">
+            <!-- Home -->
+            <svg xmlns="http://www.w3.org/2000/svg" class="flex-shrink-0" style="height:1.25rem;width:1.25rem" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 12l2-2m0 0l7-7 7 7M5 10v10a1 1 0 001 1h3m10-11l2 2m-2-2v10a1 1 0 01-1 1h-3m-6 0a1 1 0 001-1v-4a1 1 0 011-1h2a1 1 0 011 1v4a1 1 0 001 1m-6 0h6"/></svg>
+            <span class="nav-label hidden font-medium">Dashboard</span>
+          </button>
+          <button id="nav-create" data-nav="create"
+            class="nav-btn w-full flex items-center gap-3 rounded-lg text-sm font-medium transition-colors"
+            style="padding:.625rem .75rem;color:#94a3b8"
+            onclick="startCreate()">
+            <!-- PlusCircle -->
+            <svg xmlns="http://www.w3.org/2000/svg" class="flex-shrink-0" style="height:1.25rem;width:1.25rem" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 9v3m0 0v3m0-3h3m-3 0H9m12 0a9 9 0 11-18 0 9 9 0 0118 0z"/></svg>
+            <span class="nav-label hidden">Create Post</span>
+          </button>
+          <button disabled class="w-full flex items-center gap-3 rounded-lg text-sm font-medium cursor-not-allowed" style="padding:.625rem .75rem;color:rgba(148,163,184,.3)">
+            <svg xmlns="http://www.w3.org/2000/svg" class="flex-shrink-0" style="height:1.25rem;width:1.25rem" fill="none" viewBox="0 0 24 24" stroke="currentColor"><rect x="2" y="2" width="20" height="20" rx="5" ry="5" stroke-width="2"/><circle cx="12" cy="12" r="3" stroke-width="2"/><circle cx="17.5" cy="6.5" r=".8" fill="currentColor"/></svg>
+            <span class="nav-label hidden">Instagram</span>
+          </button>
+          <button disabled class="w-full flex items-center gap-3 rounded-lg text-sm font-medium cursor-not-allowed" style="padding:.625rem .75rem;color:rgba(148,163,184,.3)">
+            <svg xmlns="http://www.w3.org/2000/svg" class="flex-shrink-0" style="height:1.25rem;width:1.25rem" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10.325 4.317c.426-1.756 2.924-1.756 3.35 0a1.724 1.724 0 002.573 1.066c1.543-.94 3.31.826 2.37 2.37a1.724 1.724 0 001.065 2.572c1.756.426 1.756 2.924 0 3.35a1.724 1.724 0 00-1.066 2.573c.94 1.543-.826 3.31-2.37 2.37a1.724 1.724 0 00-2.572 1.065c-.426 1.756-2.924 1.756-3.35 0a1.724 1.724 0 00-2.573-1.066c-1.543.94-3.31-.826-2.37-2.37a1.724 1.724 0 00-1.065-2.572c-1.756-.426-1.756-2.924 0-3.35a1.724 1.724 0 001.066-2.573c-.94-1.543.826-3.31 2.37-2.37.996.608 2.296.07 2.572-1.065z"/><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 12a3 3 0 11-6 0 3 3 0 016 0z"/></svg>
+            <span class="nav-label hidden">Settings</span>
+          </button>
+        </nav>
+      </aside>
+
+      <!-- Main content -->
+      <main class="flex-1 overflow-y-auto" style="padding:1.5rem 2rem" id="main-content">
+
+        <!-- ===== DASHBOARD ===== -->
+        <div id="view-dashboard">
+          <div style="max-width:60rem;margin:0 auto">
+
+            <!-- Header row -->
+            <div class="flex items-center justify-between" style="margin-bottom:2rem">
+              <div>
+                <h1 style="font-size:1.5rem;font-weight:600">Welcome back, Demo User</h1>
+                <p style="color:#94a3b8;margin-top:.25rem">Here's your content overview.</p>
+              </div>
+              <button onclick="startCreate()" class="flex items-center gap-2 btn-primary" style="padding:.5rem 1rem;border-radius:.5rem;font-size:.875rem;font-weight:500">
+                <svg xmlns="http://www.w3.org/2000/svg" style="height:1rem;width:1rem" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 4v16m8-8H4"/></svg>
+                Create Post
+              </button>
+            </div>
+
+            <!-- Stats -->
+            <div class="grid grid-cols-3 gap-4" style="margin-bottom:2rem">
+              <div class="stat-card flex items-center gap-4">
+                <div class="stat-icon" style="background:rgba(16,185,129,.1)">
+                  <svg xmlns="http://www.w3.org/2000/svg" style="height:1.5rem;width:1.5rem;color:#34d399" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"/></svg>
+                </div>
+                <div><p id="stat-published" style="font-size:1.5rem;font-weight:700">3</p><p style="font-size:.875rem;color:#94a3b8">Published</p></div>
+              </div>
+              <div class="stat-card flex items-center gap-4">
+                <div class="stat-icon" style="background:rgba(245,158,11,.1)">
+                  <svg xmlns="http://www.w3.org/2000/svg" style="height:1.5rem;width:1.5rem;color:#fbbf24" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z"/></svg>
+                </div>
+                <div><p style="font-size:1.5rem;font-weight:700">1</p><p style="font-size:.875rem;color:#94a3b8">Scheduled</p></div>
+              </div>
+              <div class="stat-card flex items-center gap-4">
+                <div class="stat-icon" style="background:rgba(59,130,246,.1)">
+                  <svg xmlns="http://www.w3.org/2000/svg" style="height:1.5rem;width:1.5rem;color:#60a5fa" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z"/></svg>
+                </div>
+                <div><p style="font-size:1.5rem;font-weight:700">2</p><p style="font-size:.875rem;color:#94a3b8">Drafts</p></div>
+              </div>
+            </div>
+
+            <!-- Published -->
+            <section style="margin-bottom:2rem">
+              <div class="flex items-center gap-2" style="margin-bottom:1rem">
+                <svg xmlns="http://www.w3.org/2000/svg" style="height:1.25rem;width:1.25rem;color:#34d399" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"/></svg>
+                <h2 style="font-size:1.125rem;font-weight:600">Published</h2>
+                <span id="pub-count-label" style="font-size:.875rem;color:#94a3b8">(3)</span>
+              </div>
+              <div id="published-grid" class="post-grid">
+                <div class="post-card">
+                  <div class="post-thumb"><img src="/demo-post.png" class="thumb-img" alt="Post"/><span class="post-badge" style="background:rgba(16,185,129,.15);color:#34d399">Published</span></div>
+                  <div class="post-info"><p class="post-title">Summer collection launch ✨</p><p class="post-date">2 days ago</p></div>
+                </div>
+                <div class="post-card">
+                  <div class="post-thumb"><img src="/demo-photo.avif" class="thumb-img" style="filter:hue-rotate(20deg) saturate(1.3)" alt="Post"/><span class="post-badge" style="background:rgba(16,185,129,.15);color:#34d399">Published</span></div>
+                  <div class="post-info"><p class="post-title">New arrivals — shop now 🛍️</p><p class="post-date">5 days ago</p></div>
+                </div>
+                <div class="post-card">
+                  <div class="post-thumb"><img src="/demo-post.png" class="thumb-img" style="filter:brightness(.88) contrast(1.1)" alt="Post"/><span class="post-badge" style="background:rgba(16,185,129,.15);color:#34d399">Published</span></div>
+                  <div class="post-info"><p class="post-title">Weekend style guide 💫</p><p class="post-date">1 week ago</p></div>
+                </div>
+                <!-- injected after publish -->
+              </div>
+            </section>
+
+            <!-- Scheduled -->
+            <section style="margin-bottom:2rem">
+              <div class="flex items-center gap-2" style="margin-bottom:1rem">
+                <svg xmlns="http://www.w3.org/2000/svg" style="height:1.25rem;width:1.25rem;color:#fbbf24" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z"/></svg>
+                <h2 style="font-size:1.125rem;font-weight:600">Scheduled</h2>
+                <span style="font-size:.875rem;color:#94a3b8">(1)</span>
+              </div>
+              <div class="post-grid">
+                <div class="post-card" style="border-color:rgba(245,158,11,.25)">
+                  <div class="post-thumb"><img src="/demo-photo.avif" class="thumb-img" style="filter:sepia(.3)" alt="Post"/><span class="post-badge" style="background:rgba(245,158,11,.15);color:#fbbf24">Scheduled</span></div>
+                  <div class="post-info"><p class="post-title">Friday drop 🔥</p><p class="post-date" style="color:#fbbf24">Tomorrow · 7:00 PM</p></div>
+                </div>
+              </div>
+            </section>
+
+            <!-- Drafts -->
+            <section>
+              <div class="flex items-center gap-2" style="margin-bottom:1rem">
+                <svg xmlns="http://www.w3.org/2000/svg" style="height:1.25rem;width:1.25rem;color:#60a5fa" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z"/></svg>
+                <h2 style="font-size:1.125rem;font-weight:600">Drafts</h2>
+                <span style="font-size:.875rem;color:#94a3b8">(2)</span>
+              </div>
+              <div class="post-grid">
+                <div class="post-card">
+                  <div class="post-thumb"><img src="/demo-post.png" class="thumb-img" style="filter:grayscale(.5)" alt="Draft"/><span class="post-badge" style="background:rgba(255,255,255,.07);color:#94a3b8">Draft</span></div>
+                  <div class="post-info"><p class="post-title" style="color:#94a3b8">Untitled draft</p><p class="post-date">3 hours ago</p></div>
+                </div>
+                <div class="post-card">
+                  <div class="post-thumb"><img src="/demo-photo.avif" class="thumb-img" style="filter:grayscale(.3) brightness(.85)" alt="Draft"/><span class="post-badge" style="background:rgba(255,255,255,.07);color:#94a3b8">Draft</span></div>
+                  <div class="post-info"><p class="post-title" style="color:#94a3b8">Product showcase</p><p class="post-date">Yesterday</p></div>
+                </div>
+              </div>
+            </section>
+
+          </div>
+        </div>
+
+        <!-- ===== STEP 1: UPLOAD ===== -->
+        <div id="view-create-1" class="hidden">
+          <div style="max-width:56rem;margin:0 auto">
+            <div class="create-header">
+              <a href="#" onclick="switchView('dashboard');return false" class="icon-btn">
+                <svg xmlns="http://www.w3.org/2000/svg" style="height:1.25rem;width:1.25rem" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 19l-7-7m0 0l7-7m-7 7h18"/></svg>
+              </a>
+              <div>
+                <h1 style="font-size:1.25rem;font-weight:600">Create New Post</h1>
+                <p style="font-size:.875rem;color:#94a3b8">Generate AI-powered content for your Instagram</p>
+              </div>
+            </div>
+            <!-- Step indicator -->
+            <div id="step-indicator-1"></div>
+
+            <div class="content-card" style="margin-top:1.5rem">
+              <h2 style="font-size:1rem;font-weight:600;margin-bottom:.25rem">Choose a product photo</h2>
+              <p style="font-size:.875rem;color:#94a3b8;margin-bottom:1.5rem">Pick one of the sample images below — in the real app you'd upload your own.</p>
+
+              <div class="grid grid-cols-2 gap-4" style="max-width:28rem">
+                <button class="preset-img-btn" onclick="selectPresetImage('/demo-photo.avif', this)" id="preset-0">
+                  <img src="/demo-photo.avif" class="w-full h-full object-contain" alt="Product photo" />
+                  <div class="preset-label">📦 Product Photo</div>
+                </button>
+                <button class="preset-img-btn" onclick="selectPresetImage('/demo-post.png', this)" id="preset-1">
+                  <img src="/demo-post.png" class="w-full h-full object-contain" alt="Fashion shot" />
+                  <div class="preset-label">👗 Fashion Shot</div>
+                </button>
+              </div>
+
+              <!-- Upload progress -->
+              <div id="upload-area" class="hidden" style="margin-top:1.5rem">
+                <p style="font-size:.875rem;color:#94a3b8;margin-bottom:.5rem">Uploading...</p>
+                <div style="height:.375rem;background:#1f1f2e;border-radius:9999px;overflow:hidden;max-width:28rem">
+                  <div id="upload-bar" style="height:100%;width:0%;background:#AD65BF;border-radius:9999px;transition:width .1s linear"></div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- ===== STEP 2: ENHANCE ===== -->
+        <div id="view-create-2" class="hidden">
+          <div style="max-width:56rem;margin:0 auto">
+            <div class="create-header">
+              <button class="icon-btn" onclick="switchView('create-1')">
+                <svg xmlns="http://www.w3.org/2000/svg" style="height:1.25rem;width:1.25rem" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 19l-7-7m0 0l7-7m-7 7h18"/></svg>
+              </button>
+              <div>
+                <h1 style="font-size:1.25rem;font-weight:600">Create New Post</h1>
+                <p style="font-size:.875rem;color:#94a3b8">Generate AI-powered content for your Instagram</p>
+              </div>
+            </div>
+            <div id="step-indicator-2"></div>
+
+            <div class="content-card" style="margin-top:1.5rem">
+              <div style="margin-bottom:1rem">
+                <h2 style="font-size:1rem;font-weight:600">Image Variations</h2>
+                <p id="enhance-desc" style="font-size:.875rem;color:#94a3b8;margin-top:.25rem">Generating 6 variations for your product…</p>
+              </div>
+
+              <div class="enhance-grid" id="enhance-grid">
+                <!-- Slots injected by JS -->
+              </div>
+            </div>
+
+            <div class="flex justify-between" style="margin-top:1rem">
+              <button class="btn-outline" onclick="switchView('create-1')">
+                <svg xmlns="http://www.w3.org/2000/svg" style="height:1rem;width:1rem" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 19l-7-7m0 0l7-7m-7 7h18"/></svg>
+                Back
+              </button>
+              <button id="enhance-continue" class="btn-primary" disabled onclick="switchView('create-3');startGenerate()">
+                Continue
+                <svg xmlns="http://www.w3.org/2000/svg" style="height:1rem;width:1rem" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14 5l7 7m0 0l-7 7m7-7H3"/></svg>
+              </button>
+            </div>
+          </div>
+        </div>
+
+        <!-- ===== STEP 3: GENERATE ===== -->
+        <div id="view-create-3" class="hidden">
+          <div style="max-width:56rem;margin:0 auto">
+            <div class="create-header">
+              <button class="icon-btn" onclick="switchView('create-2')">
+                <svg xmlns="http://www.w3.org/2000/svg" style="height:1.25rem;width:1.25rem" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 19l-7-7m0 0l7-7m-7 7h18"/></svg>
+              </button>
+              <div>
+                <h1 style="font-size:1.25rem;font-weight:600">Create New Post</h1>
+                <p style="font-size:.875rem;color:#94a3b8">Generate AI-powered content for your Instagram</p>
+              </div>
+            </div>
+            <div id="step-indicator-3"></div>
+
+            <div class="grid grid-cols-1 gap-4" style="margin-top:1.5rem">
+
+              <!-- Prompt card -->
+              <div class="content-card">
+                <h2 style="font-size:1rem;font-weight:600;margin-bottom:.25rem">Your Prompt</h2>
+                <p style="font-size:.875rem;color:#94a3b8;margin-bottom:.75rem">Describe your product or the vibe you want</p>
+                <textarea id="prompt-input" rows="3"
+                  class="w-full"
+                  style="background:#0a0a0f;border:1px solid #1f1f2e;border-radius:.5rem;padding:.75rem;color:#F1F1F1;font-size:.875rem;resize:none;outline:none;font-family:inherit"
+                  placeholder="e.g. Elegant summer dress, beach vibes, colorful...">Stylish clothing item, elegant and modern, perfect for social media</textarea>
+                <button id="generate-btn" onclick="runGenerate()" class="btn-primary w-full flex items-center justify-center gap-2" style="margin-top:.75rem">
+                  <svg xmlns="http://www.w3.org/2000/svg" style="height:1rem;width:1rem" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 3l14 9-14 9V3z"/></svg>
+                  Generate Caption &amp; Hashtags
+                </button>
+              </div>
+
+              <!-- Caption card -->
+              <div id="caption-card" class="content-card hidden">
+                <div class="flex items-center justify-between" style="margin-bottom:.5rem">
+                  <div><h2 style="font-size:1rem;font-weight:600">Caption</h2><p style="font-size:.75rem;color:#94a3b8">Edit to your liking</p></div>
+                  <button onclick="regenCaption()" class="icon-btn-sm">
+                    <svg xmlns="http://www.w3.org/2000/svg" style="height:.875rem;width:.875rem" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 4v5h.582m15.356 2A8.001 8.001 0 004.582 9m0 0H9m11 11v-5h-.581m0 0a8.003 8.003 0 01-15.357-2m15.357 2H15"/></svg>
+                    Regenerate
+                  </button>
+                </div>
+                <textarea id="caption-output" rows="4"
+                  class="w-full"
+                  style="background:#0a0a0f;border:1px solid #1f1f2e;border-radius:.5rem;padding:.75rem;color:#F1F1F1;font-size:.875rem;resize:none;outline:none;font-family:inherit"></textarea>
+                <p id="caption-char-count" style="font-size:.75rem;color:#94a3b8;margin-top:.25rem">0 characters</p>
+              </div>
+
+              <!-- Hashtags card -->
+              <div id="hashtags-card" class="content-card hidden">
+                <div class="flex items-center justify-between" style="margin-bottom:.75rem">
+                  <div><h2 style="font-size:1rem;font-weight:600">Hashtags</h2><p style="font-size:.75rem;color:#94a3b8">Click × to remove</p></div>
+                  <button onclick="regenHashtags()" class="icon-btn-sm">
+                    <svg xmlns="http://www.w3.org/2000/svg" style="height:.875rem;width:.875rem" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 4v5h.582m15.356 2A8.001 8.001 0 004.582 9m0 0H9m11 11v-5h-.581m0 0a8.003 8.003 0 01-15.357-2m15.357 2H15"/></svg>
+                    Regenerate
+                  </button>
+                </div>
+                <div id="hashtags-output" class="flex flex-wrap gap-2"></div>
+              </div>
+            </div>
+
+            <div class="flex justify-between" style="margin-top:1rem">
+              <button class="btn-outline" onclick="switchView('create-2')">
+                <svg xmlns="http://www.w3.org/2000/svg" style="height:1rem;width:1rem" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 19l-7-7m0 0l7-7m-7 7h18"/></svg>
+                Back
+              </button>
+              <button id="generate-continue" class="btn-primary" disabled onclick="switchView('create-4');buildPreview()">
+                Continue to Preview
+                <svg xmlns="http://www.w3.org/2000/svg" style="height:1rem;width:1rem" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14 5l7 7m0 0l-7 7m7-7H3"/></svg>
+              </button>
+            </div>
+          </div>
+        </div>
+
+        <!-- ===== STEP 4: PREVIEW ===== -->
+        <div id="view-create-4" class="hidden">
+          <div style="max-width:56rem;margin:0 auto">
+            <div class="create-header">
+              <button class="icon-btn" onclick="switchView('create-3')">
+                <svg xmlns="http://www.w3.org/2000/svg" style="height:1.25rem;width:1.25rem" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 19l-7-7m0 0l7-7m-7 7h18"/></svg>
+              </button>
+              <div>
+                <h1 style="font-size:1.25rem;font-weight:600">Create New Post</h1>
+                <p style="font-size:.875rem;color:#94a3b8">Review and publish your content</p>
+              </div>
+            </div>
+            <div id="step-indicator-4"></div>
+
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-6" style="margin-top:1.5rem">
+
+              <!-- Instagram mockup -->
+              <div>
+                <p style="font-size:.875rem;font-weight:500;color:#94a3b8;margin-bottom:.75rem;text-transform:uppercase;letter-spacing:.05em;font-size:.75rem">Preview</p>
+                <div style="background:#fff;border-radius:.75rem;overflow:hidden;max-width:20rem;box-shadow:0 20px 60px rgba(0,0,0,.5)">
+                  <!-- IG header -->
+                  <div style="display:flex;align-items:center;gap:.5rem;padding:.625rem .75rem;border-bottom:1px solid #f3f4f6">
+                    <div style="width:2rem;height:2rem;border-radius:50%;background:linear-gradient(135deg,#AD65BF,#8B4F9C);flex-shrink:0"></div>
+                    <span style="font-size:.8rem;font-weight:600;color:#111">your_brand</span>
+                    <svg xmlns="http://www.w3.org/2000/svg" style="height:1rem;width:1rem;color:#6b7280;margin-left:auto" fill="none" viewBox="0 0 24 24" stroke="currentColor"><circle cx="5" cy="12" r="1.5" fill="currentColor"/><circle cx="12" cy="12" r="1.5" fill="currentColor"/><circle cx="19" cy="12" r="1.5" fill="currentColor"/></svg>
+                  </div>
+                  <!-- Image -->
+                  <div style="aspect-ratio:1/1;overflow:hidden;background:#f9fafb">
+                    <img id="preview-image" src="/demo-post.png" style="width:100%;height:100%;object-fit:cover" alt="Preview" />
+                  </div>
+                  <!-- Actions -->
+                  <div style="padding:.625rem .75rem">
+                    <div style="display:flex;gap:.875rem;margin-bottom:.5rem">
+                      <svg xmlns="http://www.w3.org/2000/svg" style="height:1.5rem;width:1.5rem;color:#111" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.8" d="M4.318 6.318a4.5 4.5 0 000 6.364L12 20.364l7.682-7.682a4.5 4.5 0 00-6.364-6.364L12 7.636l-1.318-1.318a4.5 4.5 0 00-6.364 0z"/></svg>
+                      <svg xmlns="http://www.w3.org/2000/svg" style="height:1.5rem;width:1.5rem;color:#111" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.8" d="M8 12h.01M12 12h.01M16 12h.01M21 12c0 4.418-4.03 8-9 8a9.863 9.863 0 01-4.255-.949L3 20l1.395-3.72C3.512 15.042 3 13.574 3 12c0-4.418 4.03-8 9-8s9 3.582 9 8z"/></svg>
+                      <svg xmlns="http://www.w3.org/2000/svg" style="height:1.5rem;width:1.5rem;color:#111;margin-left:auto" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.8" d="M5 5a2 2 0 012-2h10a2 2 0 012 2v16l-7-3.5L5 21V5z"/></svg>
+                    </div>
+                    <p id="preview-caption-text" style="font-size:.7rem;color:#111;line-height:1.4">
+                      <strong>your_brand</strong> Caption will appear here…
+                    </p>
+                    <p id="preview-hashtag-text" style="font-size:.7rem;color:#3b82f6;margin-top:.25rem;line-height:1.4"></p>
+                  </div>
+                </div>
+              </div>
+
+              <!-- Details panel -->
+              <div class="flex flex-col gap-4">
+                <div class="content-card">
+                  <h3 style="font-size:.875rem;font-weight:600;margin-bottom:.5rem">Caption</h3>
+                  <p id="preview-caption-panel" style="font-size:.875rem;color:#94a3b8;line-height:1.6"></p>
+                </div>
+                <div class="content-card">
+                  <h3 style="font-size:.875rem;font-weight:600;margin-bottom:.5rem">Hashtags</h3>
+                  <div id="preview-hashtags-panel" class="flex flex-wrap gap-1.5"></div>
+                </div>
+                <div class="content-card" style="background:rgba(173,101,191,.08);border-color:rgba(173,101,191,.3)">
+                  <div class="flex items-center gap-2" style="margin-bottom:.5rem">
+                    <svg xmlns="http://www.w3.org/2000/svg" style="height:1rem;width:1rem;color:#AD65BF" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z"/></svg>
+                    <h3 style="font-size:.875rem;font-weight:600;color:#AD65BF">Best time to post</h3>
+                  </div>
+                  <p style="font-size:.875rem;color:#94a3b8">AI suggests <strong style="color:#F1F1F1">Today at 7:00 PM</strong> for maximum reach.</p>
+                </div>
+
+                <button id="publish-btn" onclick="doPublish()" class="btn-primary w-full flex items-center justify-center gap-2" style="font-size:1rem;padding:.75rem 1.5rem">
+                  <svg xmlns="http://www.w3.org/2000/svg" style="height:1.125rem;width:1.125rem" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 16v1a3 3 0 003 3h10a3 3 0 003-3v-1m-4-8l-4-4m0 0L8 8m4-4v12"/></svg>
+                  Publish to Instagram
+                </button>
+                <button class="btn-outline w-full" onclick="switchView('create-3')">Save as Draft</button>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- ===== SUCCESS ===== -->
+        <div id="view-success" class="hidden flex items-center justify-center" style="min-height:60vh">
+          <div style="text-align:center;max-width:24rem">
+            <div id="success-icon" style="width:5rem;height:5rem;border-radius:50%;background:rgba(16,185,129,.15);display:flex;align-items:center;justify-content:center;margin:0 auto 1.5rem;animation:popIn .5s cubic-bezier(.34,1.56,.64,1)">
+              <svg xmlns="http://www.w3.org/2000/svg" style="height:2.5rem;width:2.5rem;color:#34d399" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M5 13l4 4L19 7"/></svg>
+            </div>
+            <h1 style="font-size:1.75rem;font-weight:700;margin-bottom:.5rem">Published! 🎉</h1>
+            <p style="color:#94a3b8;margin-bottom:2rem">Your post has been published to Instagram successfully.</p>
+            <button onclick="backToDashboard()" class="btn-primary" style="font-size:1rem;padding:.75rem 2rem">
+              Back to Dashboard
+            </button>
+          </div>
+        </div>
+
+      </main>
+    </div>
+  </div>
+
+</body>
+</html>
+
+<style>
+  /* ----- Sidebar expand on md ----- */
+  @media (min-width: 768px) {
+    #sidebar { width: 14rem !important; }
+    .nav-label { display: inline !important; }
+  }
+
+  /* ----- Nav button states ----- */
+  .nav-btn { color: #94a3b8; }
+  .nav-btn.active-nav { background: #AD65BF !important; color: #fff !important; }
+  .nav-btn:not(.active-nav):hover { background: rgba(255,255,255,.05); color: #F1F1F1; }
+
+  /* ----- Stat card ----- */
+  .stat-card {
+    background: #12121a;
+    border: 1px solid #1f1f2e;
+    border-radius: .75rem;
+    padding: 1rem;
+  }
+  .stat-icon {
+    width: 3rem; height: 3rem;
+    border-radius: .5rem;
+    display: flex; align-items: center; justify-content: center;
+    flex-shrink: 0;
+  }
+
+  /* ----- Post grid ----- */
+  .post-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 1rem;
+  }
+  @media (min-width: 640px) { .post-grid { grid-template-columns: repeat(3, 1fr); } }
+  @media (min-width: 1024px) { .post-grid { grid-template-columns: repeat(4, 1fr); } }
+
+  .post-card {
+    background: #12121a;
+    border: 1px solid #1f1f2e;
+    border-radius: .75rem;
+    overflow: hidden;
+    cursor: pointer;
+    transition: border-color .2s, transform .2s;
+  }
+  .post-card:hover { border-color: rgba(173,101,191,.4); transform: translateY(-2px); }
+
+  .post-thumb {
+    position: relative;
+    aspect-ratio: 4/5;
+    background: #0a0a0f;
+    overflow: hidden;
+  }
+  .thumb-img { width: 100%; height: 100%; object-fit: contain; }
+  .post-badge {
+    position: absolute; top: .5rem; right: .5rem;
+    font-size: .625rem; font-weight: 700;
+    padding: .125rem .5rem; border-radius: 9999px;
+  }
+  .post-info { padding: .75rem; }
+  .post-title { font-size: .875rem; font-weight: 500; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
+  .post-date { font-size: .75rem; color: #94a3b8; margin-top: .25rem; }
+
+  /* ----- Buttons ----- */
+  .btn-primary {
+    display: inline-flex; align-items: center; gap: .5rem;
+    background: #AD65BF; color: #fff;
+    border: none; border-radius: .5rem;
+    padding: .5rem 1rem; font-size: .875rem; font-weight: 600;
+    cursor: pointer; transition: opacity .2s;
+    font-family: inherit;
+  }
+  .btn-primary:hover:not(:disabled) { opacity: .88; }
+  .btn-primary:disabled { opacity: .4; cursor: not-allowed; }
+
+  .btn-outline {
+    display: inline-flex; align-items: center; gap: .5rem;
+    background: transparent; color: #F1F1F1;
+    border: 1px solid #1f1f2e; border-radius: .5rem;
+    padding: .5rem 1rem; font-size: .875rem; font-weight: 500;
+    cursor: pointer; transition: border-color .2s, color .2s;
+    font-family: inherit;
+  }
+  .btn-outline:hover { border-color: #AD65BF; color: #AD65BF; }
+
+  .icon-btn {
+    display: flex; align-items: center; justify-content: center;
+    width: 2.25rem; height: 2.25rem;
+    border: 1px solid #1f1f2e; border-radius: .5rem;
+    background: transparent; color: #F1F1F1;
+    cursor: pointer; transition: background .2s; flex-shrink: 0;
+    font-family: inherit; text-decoration: none;
+  }
+  .icon-btn:hover { background: rgba(255,255,255,.06); }
+
+  .icon-btn-sm {
+    display: inline-flex; align-items: center; gap: .25rem;
+    font-size: .75rem; color: #94a3b8; background: transparent;
+    border: none; cursor: pointer; transition: color .2s;
+    font-family: inherit;
+  }
+  .icon-btn-sm:hover { color: #F1F1F1; }
+
+  /* ----- Content card ----- */
+  .content-card {
+    background: #12121a;
+    border: 1px solid #1f1f2e;
+    border-radius: .75rem;
+    padding: 1.25rem;
+  }
+
+  /* ----- Create header ----- */
+  .create-header {
+    display: flex; align-items: center; gap: 1rem;
+    margin-bottom: 1.5rem;
+  }
+
+  /* ----- Step indicator ----- */
+  .step-indicator {
+    display: flex; align-items: center;
+    margin-bottom: 1.5rem;
+  }
+  .step-item { display: flex; align-items: center; gap: .75rem; }
+  .step-circle {
+    width: 2.5rem; height: 2.5rem; border-radius: 50%;
+    display: flex; align-items: center; justify-content: center;
+    font-size: .875rem; font-weight: 600; flex-shrink: 0;
+  }
+  .step-circle.done { background: #AD65BF; color: #fff; }
+  .step-circle.active { background: #AD65BF; color: #fff; }
+  .step-circle.pending { background: #1f1f2e; color: #94a3b8; }
+  .step-text-name { font-size: .875rem; font-weight: 500; }
+  .step-text-desc { font-size: .75rem; color: #94a3b8; }
+  .step-line { flex: 1; height: 2px; margin: 0 1rem; }
+  .step-line.done { background: #AD65BF; }
+  .step-line.pending { background: #1f1f2e; }
+
+  /* ----- Preset image buttons ----- */
+  .preset-img-btn {
+    position: relative;
+    aspect-ratio: 4/5;
+    background: #12121a;
+    border: 2px solid #1f1f2e;
+    border-radius: .75rem;
+    overflow: hidden;
+    cursor: pointer;
+    transition: border-color .2s, transform .2s;
+    padding: 0;
+  }
+  .preset-img-btn:hover { border-color: rgba(173,101,191,.5); transform: translateY(-2px); }
+  .preset-img-btn.selected { border-color: #AD65BF; box-shadow: 0 0 0 3px rgba(173,101,191,.2); }
+  .preset-label {
+    position: absolute; bottom: 0; left: 0; right: 0;
+    background: linear-gradient(to top, rgba(0,0,0,.7), transparent);
+    padding: .75rem .5rem .5rem;
+    font-size: .75rem; font-weight: 600; color: #fff;
+    text-align: center;
+  }
+
+  /* ----- Enhance grid ----- */
+  .enhance-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: .75rem;
+  }
+
+  .enhance-slot {
+    position: relative;
+    aspect-ratio: 4/5;
+    background: #0a0a0f;
+    border: 2px solid #1f1f2e;
+    border-radius: .625rem;
+    overflow: hidden;
+    cursor: pointer;
+    transition: border-color .2s;
+  }
+  .enhance-slot.selected { border-color: #AD65BF; box-shadow: 0 0 0 3px rgba(173,101,191,.2); }
+  .enhance-slot:hover:not(.loading) { border-color: rgba(173,101,191,.5); }
+
+  .slot-spinner {
+    position: absolute; inset: 0;
+    display: flex; flex-direction: column; align-items: center; justify-content: center; gap: .5rem;
+    background: rgba(18,18,26,.95);
+  }
+  .spinner-ring {
+    width: 2rem; height: 2rem;
+    border: 2px solid #1f1f2e;
+    border-top-color: #AD65BF;
+    border-radius: 50%;
+    animation: spin 1s linear infinite;
+  }
+  .slot-label-text { font-size: .7rem; color: #94a3b8; font-weight: 500; }
+
+  .slot-image { position: absolute; inset: 0; }
+  .slot-image img { width: 100%; height: 100%; object-fit: cover; }
+  .slot-image-label {
+    position: absolute; bottom: 0; left: 0; right: 0;
+    background: linear-gradient(to top, rgba(0,0,0,.65), transparent);
+    padding: .5rem .375rem .375rem;
+    font-size: .625rem; font-weight: 600; color: #fff;
+  }
+  .slot-badge {
+    position: absolute; top: .375rem; right: .375rem;
+    width: 1.25rem; height: 1.25rem;
+    background: #AD65BF; border-radius: 50%;
+    display: flex; align-items: center; justify-content: center;
+    font-size: .625rem; font-weight: 700; color: #fff;
+  }
+
+  /* ----- Hashtag chip ----- */
+  .hashtag-chip {
+    display: inline-flex; align-items: center; gap: .25rem;
+    padding: .25rem .625rem;
+    background: rgba(173,101,191,.15);
+    color: #AD65BF;
+    border-radius: 9999px;
+    font-size: .75rem; font-weight: 500;
+    cursor: pointer;
+    transition: background .2s;
+    animation: fadeInUp .3s ease-out;
+  }
+  .hashtag-chip:hover { background: rgba(173,101,191,.28); }
+
+  /* ----- Preview hashtag chips ----- */
+  .preview-chip {
+    display: inline-flex;
+    padding: .125rem .5rem;
+    background: rgba(173,101,191,.15);
+    color: #AD65BF;
+    border-radius: 9999px;
+    font-size: .75rem;
+  }
+
+  /* ----- Animations ----- */
+  @keyframes spin { to { transform: rotate(360deg); } }
+
+  @keyframes popIn {
+    0% { transform: scale(0); opacity: 0; }
+    100% { transform: scale(1); opacity: 1; }
+  }
+
+  @keyframes fadeInUp {
+    from { opacity: 0; transform: translateY(8px); }
+    to { opacity: 1; transform: translateY(0); }
+  }
+
+  /* ----- Utility ----- */
+  .hidden { display: none !important; }
+  .w-full { width: 100%; }
+  * { box-sizing: border-box; }
+</style>
+
+<script>
+  // ---- State ----
+  let selectedImageSrc = '/demo-photo.avif';
+  let selectedSlotIndices = []; // ordered list of selected slot indices
+  let generatedCaption = '';
+  let generatedHashtags = [];
+  let publishedCount = 3;
+  let generateRan = false;
+
+  const SLOTS = [
+    { label: 'Model Shot',   src: '/demo-post.png',   filter: '' },
+    { label: 'Product Shot', src: '/demo-photo.avif', filter: 'brightness(1.05) saturate(1.1)' },
+    { label: 'Close-up',     src: '/demo-post.png',   filter: 'brightness(1.1) saturate(1.2) contrast(1.05)' },
+    { label: 'Back Shot',    src: '/demo-photo.avif', filter: 'hue-rotate(20deg) saturate(1.3)' },
+    { label: 'Ad Visual',    src: '/demo-post.png',   filter: 'contrast(1.15) brightness(.9) saturate(.8)' },
+    { label: 'Grid View',    src: '/demo-photo.avif', filter: 'sepia(.35) contrast(1.1)' },
+  ];
+
+  const CAPTIONS = [
+    '✨ Elevate your everyday style with our latest collection. Crafted for those who dare to stand out. Shop now through the link in bio! 🌟',
+    '🔥 New season, new look. Our curated pieces are designed for confidence and comfort. Tap the link in bio to explore! 💫',
+    '💫 Style that speaks before you do. Discover our newest arrivals and make every outfit a statement. 👗 Link in bio!',
+  ];
+  const HASHTAG_SETS = [
+    ['fashion','style','ootd','newcollection','instafashion','trendy','outfitoftheday','fashionblogger'],
+    ['fashionista','styleinspo','newlook','clothing','streetstyle','outfitideas','fashionweek','lookbook'],
+    ['dailyoutfit','wearitwell','stylegram','fashionpost','modafemminile','trendalert','outfitpost','chic'],
+  ];
+  let captionIdx = 0;
+  let hashtagIdx = 0;
+
+  // ---- View switching ----
+  function switchView(viewId) {
+    document.querySelectorAll('[id^="view-"]').forEach(el => el.classList.add('hidden'));
+    const el = document.getElementById('view-' + viewId);
+    if (el) el.classList.remove('hidden');
+  }
+
+  function setActiveNav(key) {
+    document.querySelectorAll('.nav-btn').forEach(btn => btn.classList.remove('active-nav'));
+    const btn = document.getElementById('nav-' + key);
+    if (btn) btn.classList.add('active-nav');
+  }
+
+  // ---- Step indicator ----
+  const STEPS = [
+    { name: 'Upload',   desc: 'Add product image' },
+    { name: 'Enhance',  desc: 'Apply AI variations' },
+    { name: 'Generate', desc: 'Caption & hashtags' },
+    { name: 'Preview',  desc: 'Review and publish' },
+  ];
+
+  function renderStepIndicator(containerId, activeStep) {
+    const container = document.getElementById(containerId);
+    if (!container) return;
+    let html = '<div class="step-indicator">';
+    STEPS.forEach((step, i) => {
+      const n = i + 1;
+      const isDone = n < activeStep;
+      const isActive = n === activeStep;
+      const circleClass = isDone ? 'done' : (isActive ? 'active' : 'pending');
+      const nameStyle = isActive || isDone ? 'color:#F1F1F1' : 'color:#94a3b8';
+      html += `
+        <div class="step-item">
+          <div class="step-circle ${circleClass}">
+            ${isDone
+              ? '<svg xmlns="http://www.w3.org/2000/svg" style="height:1.1rem;width:1.1rem" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M5 13l4 4L19 7"/></svg>'
+              : n}
+          </div>
+          <div class="hidden sm:block">
+            <p class="step-text-name" style="${nameStyle}">${step.name}</p>
+            <p class="step-text-desc">${step.desc}</p>
+          </div>
+        </div>`;
+      if (i < STEPS.length - 1) {
+        html += `<div class="step-line ${isDone ? 'done' : 'pending'}"></div>`;
+      }
+    });
+    html += '</div>';
+    container.innerHTML = html;
+  }
+
+  // ---- Dashboard ----
+  function switchView_dashboard() {
+    switchView('dashboard');
+    setActiveNav('dashboard');
+  }
+
+  // ---- Create flow ----
+  function startCreate() {
+    generateRan = false;
+    selectedSlotIndices = [];
+    selectedImageSrc = '/demo-photo.avif';
+    document.querySelectorAll('.preset-img-btn').forEach(b => b.classList.remove('selected'));
+    document.getElementById('upload-area').classList.add('hidden');
+    document.getElementById('upload-bar').style.width = '0%';
+    switchView('create-1');
+    setActiveNav('create');
+    renderStepIndicator('step-indicator-1', 1);
+  }
+
+  function selectPresetImage(src, btn) {
+    selectedImageSrc = src;
+    document.querySelectorAll('.preset-img-btn').forEach(b => b.classList.remove('selected'));
+    btn.classList.add('selected');
+
+    // Show progress bar
+    const uploadArea = document.getElementById('upload-area');
+    const bar = document.getElementById('upload-bar');
+    uploadArea.classList.remove('hidden');
+    let w = 0;
+    const interval = setInterval(() => {
+      w += Math.random() * 18 + 6;
+      if (w >= 100) {
+        w = 100;
+        bar.style.width = '100%';
+        clearInterval(interval);
+        setTimeout(() => {
+          switchView('create-2');
+          renderStepIndicator('step-indicator-2', 2);
+          buildEnhanceGrid();
+          startEnhanceAnimation();
+        }, 350);
+      }
+      bar.style.width = w + '%';
+    }, 80);
+  }
+
+  // ---- Enhance step ----
+  function buildEnhanceGrid() {
+    selectedSlotIndices = [];
+    const grid = document.getElementById('enhance-grid');
+    grid.innerHTML = SLOTS.map((slot, i) => `
+      <div class="enhance-slot loading" id="slot-${i}" data-index="${i}" onclick="toggleSlot(${i})">
+        <div class="slot-spinner" id="slot-spinner-${i}">
+          <div class="spinner-ring"></div>
+          <p class="slot-label-text">${slot.label}</p>
+          <p class="slot-label-text" style="color:#AD65BF;font-size:.6rem">Generating…</p>
+        </div>
+        <div class="slot-image hidden" id="slot-image-${i}">
+          <img src="${slot.src}" style="filter:${slot.filter}" alt="${slot.label}" />
+          <div class="slot-image-label">${slot.label}</div>
+        </div>
+      </div>
+    `).join('');
+    document.getElementById('enhance-continue').disabled = true;
+    document.getElementById('enhance-desc').textContent = 'Generating 6 variations for your product…';
+  }
+
+  function startEnhanceAnimation() {
+    const revealTimes = [700, 1400, 2100, 2700, 3400, 4100];
+    revealTimes.forEach((delay, i) => {
+      setTimeout(() => {
+        const spinner = document.getElementById(`slot-spinner-${i}`);
+        const image = document.getElementById(`slot-image-${i}`);
+        const slot = document.getElementById(`slot-${i}`);
+        if (spinner) spinner.classList.add('hidden');
+        if (image) image.classList.remove('hidden');
+        if (slot) slot.classList.remove('loading');
+      }, delay);
+    });
+
+    // Auto-select slot 0 once it's revealed, then enable Continue
+    setTimeout(() => {
+      toggleSlot(0);
+      document.getElementById('enhance-continue').disabled = false;
+      document.getElementById('enhance-desc').textContent = '1 selected — first tap becomes primary';
+    }, 800);
+  }
+
+  function toggleSlot(index) {
+    const slot = document.getElementById(`slot-${index}`);
+    if (!slot || slot.classList.contains('loading')) return;
+
+    const pos = selectedSlotIndices.indexOf(index);
+    if (pos >= 0) {
+      selectedSlotIndices.splice(pos, 1);
+      slot.classList.remove('selected');
+      const badge = slot.querySelector('.slot-badge');
+      if (badge) badge.remove();
+    } else {
+      selectedSlotIndices.push(index);
+      slot.classList.add('selected');
+    }
+
+    // Re-render badges to show order numbers
+    selectedSlotIndices.forEach((idx, order) => {
+      const s = document.getElementById(`slot-${idx}`);
+      const existing = s.querySelector('.slot-badge');
+      if (existing) existing.remove();
+      const badge = document.createElement('div');
+      badge.className = 'slot-badge';
+      badge.textContent = order + 1;
+      s.appendChild(badge);
+    });
+
+    const count = selectedSlotIndices.length;
+    document.getElementById('enhance-continue').disabled = count === 0;
+    document.getElementById('enhance-desc').textContent =
+      count === 0
+        ? 'Select at least one variation to continue'
+        : `${count} selected — first tap becomes primary`;
+  }
+
+  // ---- Generate step ----
+  function startGenerate() {
+    generateRan = false;
+    document.getElementById('caption-card').classList.add('hidden');
+    document.getElementById('hashtags-card').classList.add('hidden');
+    document.getElementById('hashtags-output').innerHTML = '';
+    document.getElementById('caption-output').value = '';
+    document.getElementById('caption-char-count').textContent = '0 characters';
+    document.getElementById('generate-continue').disabled = true;
+    document.getElementById('generate-btn').disabled = false;
+    document.getElementById('generate-btn').innerHTML = `
+      <svg xmlns="http://www.w3.org/2000/svg" style="height:1rem;width:1rem" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 3l14 9-14 9V3z"/></svg>
+      Generate Caption &amp; Hashtags`;
+    renderStepIndicator('step-indicator-3', 3);
+  }
+
+  function runGenerate() {
+    if (generateRan) return;
+    generateRan = true;
+    const btn = document.getElementById('generate-btn');
+    btn.disabled = true;
+    btn.innerHTML = `
+      <svg xmlns="http://www.w3.org/2000/svg" style="height:1rem;width:1rem;animation:spin 1s linear infinite" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 4v5h.582m15.356 2A8.001 8.001 0 004.582 9m0 0H9m11 11v-5h-.581m0 0a8.003 8.003 0 01-15.357-2m15.357 2H15"/></svg>
+      Generating…`;
+
+    const caption = CAPTIONS[captionIdx % CAPTIONS.length];
+    const hashtags = HASHTAG_SETS[hashtagIdx % HASHTAG_SETS.length];
+
+    setTimeout(() => {
+      // Reveal caption card with typewriter
+      const captionCard = document.getElementById('caption-card');
+      captionCard.classList.remove('hidden');
+      const output = document.getElementById('caption-output');
+      const charCount = document.getElementById('caption-char-count');
+      let i = 0;
+      const type = setInterval(() => {
+        if (i < caption.length) {
+          output.value = caption.slice(0, ++i);
+          charCount.textContent = `${i} characters`;
+        } else {
+          clearInterval(type);
+          generatedCaption = caption;
+
+          // Reveal hashtag card
+          const hashtagsCard = document.getElementById('hashtags-card');
+          hashtagsCard.classList.remove('hidden');
+          const hashContainer = document.getElementById('hashtags-output');
+          hashContainer.innerHTML = '';
+          hashtags.forEach((tag, j) => {
+            setTimeout(() => {
+              const chip = document.createElement('span');
+              chip.className = 'hashtag-chip';
+              chip.innerHTML = `#${tag} <span onclick="removeHashtag(this,'${tag}')" style="opacity:.7;font-size:.7rem">×</span>`;
+              hashContainer.appendChild(chip);
+            }, j * 120);
+          });
+          generatedHashtags = [...hashtags];
+
+          setTimeout(() => {
+            document.getElementById('generate-continue').disabled = false;
+            btn.disabled = false;
+            btn.innerHTML = `
+              <svg xmlns="http://www.w3.org/2000/svg" style="height:1rem;width:1rem;animation:spin 1s linear infinite" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 4v5h.582m15.356 2A8.001 8.001 0 004.582 9m0 0H9m11 11v-5h-.581m0 0a8.003 8.003 0 01-15.357-2m15.357 2H15"/></svg>`;
+            btn.innerHTML = `
+              <svg xmlns="http://www.w3.org/2000/svg" style="height:1rem;width:1rem" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 4v5h.582m15.356 2A8.001 8.001 0 004.582 9m0 0H9m11 11v-5h-.581m0 0a8.003 8.003 0 01-15.357-2m15.357 2H15"/></svg>
+              Regenerate All`;
+            generateRan = false;
+          }, hashtags.length * 120 + 200);
+        }
+      }, 22);
+    }, 1400);
+  }
+
+  function regenCaption() {
+    captionIdx++;
+    const caption = CAPTIONS[captionIdx % CAPTIONS.length];
+    const output = document.getElementById('caption-output');
+    output.value = '';
+    let i = 0;
+    const type = setInterval(() => {
+      if (i < caption.length) {
+        output.value = caption.slice(0, ++i);
+        document.getElementById('caption-char-count').textContent = `${i} characters`;
+      } else {
+        clearInterval(type);
+        generatedCaption = caption;
+      }
+    }, 18);
+  }
+
+  function regenHashtags() {
+    hashtagIdx++;
+    const hashtags = HASHTAG_SETS[hashtagIdx % HASHTAG_SETS.length];
+    const hashContainer = document.getElementById('hashtags-output');
+    hashContainer.innerHTML = '';
+    hashtags.forEach((tag, j) => {
+      setTimeout(() => {
+        const chip = document.createElement('span');
+        chip.className = 'hashtag-chip';
+        chip.innerHTML = `#${tag} <span onclick="removeHashtag(this,'${tag}')" style="opacity:.7;font-size:.7rem">×</span>`;
+        hashContainer.appendChild(chip);
+      }, j * 100);
+    });
+    generatedHashtags = [...hashtags];
+  }
+
+  function removeHashtag(el, tag) {
+    el.parentElement.remove();
+    generatedHashtags = generatedHashtags.filter(t => t !== tag);
+  }
+
+  // ---- Preview step ----
+  function buildPreview() {
+    renderStepIndicator('step-indicator-4', 4);
+
+    // Pick the primary selected image (first selected slot, fallback to selectedImageSrc)
+    const primarySlotIdx = selectedSlotIndices[0];
+    const primarySrc = primarySlotIdx !== undefined
+      ? SLOTS[primarySlotIdx].src
+      : selectedImageSrc;
+    const primaryFilter = primarySlotIdx !== undefined ? SLOTS[primarySlotIdx].filter : '';
+
+    const previewImg = document.getElementById('preview-image');
+    previewImg.src = primarySrc;
+    previewImg.style.filter = primaryFilter;
+
+    const caption = document.getElementById('caption-output')?.value || generatedCaption;
+    generatedCaption = caption;
+
+    document.getElementById('preview-caption-text').innerHTML =
+      `<strong>your_brand</strong> ${caption.slice(0, 80)}${caption.length > 80 ? '…' : ''}`;
+    document.getElementById('preview-caption-panel').textContent = caption;
+
+    const tags = generatedHashtags.length ? generatedHashtags
+      : Array.from(document.querySelectorAll('.hashtag-chip'))
+          .map(el => el.textContent.replace('×','').trim().replace('#',''));
+
+    document.getElementById('preview-hashtag-text').textContent = tags.map(t => '#' + t).join(' ');
+
+    const panelContainer = document.getElementById('preview-hashtags-panel');
+    panelContainer.innerHTML = tags.map(t =>
+      `<span class="preview-chip">#${t}</span>`
+    ).join('');
+
+    // Reset publish button
+    const btn = document.getElementById('publish-btn');
+    btn.disabled = false;
+    btn.innerHTML = `
+      <svg xmlns="http://www.w3.org/2000/svg" style="height:1.125rem;width:1.125rem" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 16v1a3 3 0 003 3h10a3 3 0 003-3v-1m-4-8l-4-4m0 0L8 8m4-4v12"/></svg>
+      Publish to Instagram`;
+  }
+
+  function doPublish() {
+    const btn = document.getElementById('publish-btn');
+    btn.disabled = true;
+    btn.innerHTML = `
+      <svg xmlns="http://www.w3.org/2000/svg" style="height:1rem;width:1rem;animation:spin 1s linear infinite" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 4v5h.582m15.356 2A8.001 8.001 0 004.582 9m0 0H9m11 11v-5h-.581m0 0a8.003 8.003 0 01-15.357-2m15.357 2H15"/></svg>
+      Publishing…`;
+    setTimeout(() => {
+      publishedCount++;
+      switchView('success');
+    }, 1600);
+  }
+
+  function backToDashboard() {
+    // Update stat counter
+    document.getElementById('stat-published').textContent = publishedCount;
+    document.getElementById('pub-count-label').textContent = `(${publishedCount})`;
+
+    // Inject new post card
+    const grid = document.getElementById('published-grid');
+    const primarySlotIdx = selectedSlotIndices[0];
+    const src = primarySlotIdx !== undefined ? SLOTS[primarySlotIdx].src : selectedImageSrc;
+    const filter = primarySlotIdx !== undefined ? SLOTS[primarySlotIdx].filter : '';
+    const captionSnippet = generatedCaption ? generatedCaption.slice(0, 40) + '…' : 'New post';
+
+    const card = document.createElement('div');
+    card.className = 'post-card';
+    card.style.borderColor = 'rgba(173,101,191,.5)';
+    card.style.animation = 'fadeInUp .4s ease-out';
+    card.innerHTML = `
+      <div class="post-thumb">
+        <img src="${src}" class="thumb-img" style="filter:${filter}" alt="New post" />
+        <span class="post-badge" style="background:rgba(173,101,191,.2);color:#AD65BF">Just published ✨</span>
+      </div>
+      <div class="post-info">
+        <p class="post-title">${captionSnippet}</p>
+        <p class="post-date">Just now</p>
+      </div>`;
+    grid.insertBefore(card, grid.firstChild);
+
+    switchView('dashboard');
+    setActiveNav('dashboard');
+  }
+
+  // ---- Banner ----
+  document.addEventListener('DOMContentLoaded', () => {
+    document.getElementById('close-banner')?.addEventListener('click', () => {
+      document.getElementById('demo-banner').remove();
+      document.getElementById('app').style.top = '0';
+    });
+
+    // Wire up nav dashboard button
+    document.getElementById('nav-dashboard')?.addEventListener('click', () => {
+      switchView('dashboard');
+      setActiveNav('dashboard');
+    });
+  });
+</script>
