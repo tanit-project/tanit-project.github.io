@@ -27,11 +27,7 @@ const teamMembers = [
         <div class={`animate-on-scroll delay-${index % 3 + 2} group`}>
           <div class="team-card h-full">
             <div class="relative aspect-square overflow-hidden">
-              <div class="absolute inset-0 bg-tanit-purple/50"></div>
               <img src={member.image} alt={member.name} loading="lazy" class="absolute inset-0 w-full h-full object-cover object-center transition-transform duration-500 group-hover:scale-110" onerror="this.style.display='none'" />
-              <div class="absolute inset-0 flex items-center justify-center">
-                <Icon name="ph:user" class="h-16 w-16 text-tanit-purple/30" />
-              </div>
             </div>
             <div class="p-4 text-center">
               <h3 class="font-semibold text-tanit-text text-sm md:text-base">{member.name}</h3>
