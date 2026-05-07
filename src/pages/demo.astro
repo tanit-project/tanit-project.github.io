@@ -42,7 +42,7 @@ import '../styles/global.css';
     <nav id="sidebar-nav">
       <button class="nav-item active" data-key="dashboard" onclick="gotoView('dashboard')">
         <svg class="nav-icon" xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="none" viewBox="0 0 24 24" stroke="currentColor"><rect x="3" y="3" width="7" height="7" rx="1" stroke-width="2"/><rect x="14" y="3" width="7" height="7" rx="1" stroke-width="2"/><rect x="3" y="14" width="7" height="7" rx="1" stroke-width="2"/><rect x="14" y="14" width="7" height="7" rx="1" stroke-width="2"/></svg>
-        <span class="nav-label">Ana Sayfa</span>
+        <span class="nav-label">Kontrol Paneli</span>
         <div class="active-bar"></div>
       </button>
       <button class="nav-item" data-key="create" onclick="gotoView('create')">
@@ -57,7 +57,7 @@ import '../styles/global.css';
       </button>
       <button class="nav-item" data-key="scheduled" onclick="gotoView('scheduled')">
         <svg class="nav-icon" xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="none" viewBox="0 0 24 24" stroke="currentColor"><rect x="3" y="4" width="18" height="18" rx="2" stroke-width="2"/><path stroke-linecap="round" stroke-width="2" d="M16 2v4M8 2v4M3 10h18"/></svg>
-        <span class="nav-label">Planlanan</span>
+        <span class="nav-label">Planlananlar</span>
         <div class="active-bar"></div>
       </button>
       <button class="nav-item" data-key="profile" onclick="gotoView('profile')">
@@ -76,7 +76,7 @@ import '../styles/global.css';
     <div id="sidebar-footer">
       <button id="theme-toggle-btn" class="footer-btn">
         <svg id="theme-icon" class="nav-icon" xmlns="http://www.w3.org/2000/svg" width="18" height="18" fill="none" viewBox="0 0 24 24" stroke="currentColor"><circle cx="12" cy="12" r="5" stroke-width="2"/><path stroke-linecap="round" stroke-width="2" d="M12 2v2M12 20v2M4.22 4.22l1.42 1.42M18.36 18.36l1.42 1.42M2 12h2M20 12h2M4.22 19.78l1.42-1.42M18.36 5.64l1.42-1.42"/></svg>
-        <span class="nav-label">Light Mode</span>
+        <span class="nav-label">Aydınlık Mod</span>
       </button>
       <div id="user-row">
         <div id="user-avatar">D</div>
@@ -101,152 +101,52 @@ import '../styles/global.css';
     <!-- ────────────────────────────────────
          VIEW: DASHBOARD
     ──────────────────────────────────── -->
-    <div id="view-dashboard" class="view" style="max-width:60rem;margin:0 auto">
+    <div id="view-dashboard" class="view" style="max-width:56rem;margin:0 auto">
 
-      <!-- Header -->
-      <div class="dash-header">
-        <div>
-          <h1 class="display-heading">Hoşgeldin, Demo User!</h1>
-          <p class="muted-text" style="margin-top:.25rem">İçeriğini yönet</p>
-        </div>
-        <button class="gradient-btn" onclick="gotoView('create')" style="padding:.5rem 1.25rem;border-radius:.625rem;font-size:.875rem;display:flex;align-items:center;gap:.5rem">
-          <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M12 4v16m8-8H4"/></svg>
-          Yeni İçerik Oluştur
-        </button>
+      <!-- Hero -->
+      <div style="text-align:center;padding:3.5rem 1rem 2.5rem">
+        <h1 class="display-heading gradient-text" style="font-size:2.375rem;line-height:1.25">
+          Ürün fotoğrafını Instagram<br>gönderisine dönüştür
+        </h1>
+        <p class="muted-text" style="margin-top:.875rem;font-size:1rem">Dakikalar içinde. Yapay zeka ile.</p>
       </div>
 
-      <!-- Stats -->
-      <div class="stats-grid">
-        <div class="stat-card">
-          <div class="stat-icon" style="background:rgba(167,139,250,.12)">
-            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="none" viewBox="0 0 24 24" stroke="#A78BFA"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"/></svg>
+      <!-- Feature cards -->
+      <div class="dash-feature-grid">
+
+        <div class="dash-feature-card" style="--card-glow:rgba(109,40,217,.18);--card-border:rgba(109,40,217,.35)">
+          <div class="dash-feature-icon" style="background:rgba(109,40,217,.18)">
+            <svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" fill="none" viewBox="0 0 24 24" stroke="#A78BFA"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 9a2 2 0 012-2h.93a2 2 0 001.664-.89l.812-1.22A2 2 0 0110.07 4h3.86a2 2 0 011.664.89l.812 1.22A2 2 0 0018.07 7H19a2 2 0 012 2v9a2 2 0 01-2 2H5a2 2 0 01-2-2V9z"/><circle cx="12" cy="13" r="3" stroke-width="2"/></svg>
           </div>
-          <div>
-            <p id="stat-published" class="stat-num">3</p>
-            <p class="stat-label">Yayınlanan</p>
-          </div>
+          <h3 class="dash-feature-title">AI Fotoğraf Çekimi</h3>
+          <p class="dash-feature-desc">Ürün görselini flatlay, model üstünde veya kullanım halinde stüdyo çekimine dönüştür — fotoğrafçı gerekmez.</p>
         </div>
-        <div class="stat-card">
-          <div class="stat-icon" style="background:rgba(251,191,36,.1)">
-            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="none" viewBox="0 0 24 24" stroke="#fbbf24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z"/></svg>
+
+        <div class="dash-feature-card" style="--card-glow:rgba(146,64,14,.2);--card-border:rgba(217,119,6,.3)">
+          <div class="dash-feature-icon" style="background:rgba(180,83,9,.18)">
+            <svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" fill="none" viewBox="0 0 24 24" stroke="#fbbf24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 3H5a2 2 0 00-2 2v14a2 2 0 002 2h14a2 2 0 002-2V5a2 2 0 00-2-2h-4M9 3a3 3 0 006 0M9 3h6"/></svg>
           </div>
-          <div>
-            <p id="stat-scheduled" class="stat-num">1</p>
-            <p class="stat-label">Planlanmış</p>
-          </div>
+          <h3 class="dash-feature-title">Sanal Model Denemesi</h3>
+          <p class="dash-feature-desc">Kıyafetini AI model üzerinde giydir, farklı beden ve stillerde gerçekçi sonuçlar gör.</p>
         </div>
-        <div class="stat-card">
-          <div class="stat-icon" style="background:rgba(96,165,250,.1)">
-            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="none" viewBox="0 0 24 24" stroke="#60a5fa"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z"/></svg>
+
+        <div class="dash-feature-card" style="--card-glow:rgba(6,78,59,.2);--card-border:rgba(16,185,129,.25)">
+          <div class="dash-feature-icon" style="background:rgba(6,95,70,.2)">
+            <svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" fill="none" viewBox="0 0 24 24" stroke="#34d399"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 19l9 2-9-18-9 18 9-2zm0 0v-8"/></svg>
           </div>
-          <div>
-            <p id="stat-drafts" class="stat-num">2</p>
-            <p class="stat-label">Taslak</p>
-          </div>
+          <h3 class="dash-feature-title">Doğrudan Instagram'a</h3>
+          <p class="dash-feature-desc">AI başlık ve etiket yazar, istediğin saatte planlar ve Instagram hesabına otomatik yayınlar.</p>
         </div>
+
       </div>
 
-      <!-- Published Section -->
-      <section class="dash-section">
-        <button class="section-toggle" onclick="toggleSection('published')" aria-expanded="true">
-          <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="none" viewBox="0 0 24 24" stroke="#A78BFA"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"/></svg>
-          <h2 class="section-title">Yayınlanan</h2>
-          <span id="pub-count" class="section-count">(3)</span>
-          <svg id="chevron-published" class="chevron" xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"/></svg>
+      <!-- CTA -->
+      <div style="text-align:center;padding:2rem 0 1rem">
+        <button class="gradient-btn" onclick="gotoView('create')"
+          style="padding:.9375rem 2.5rem;border-radius:.875rem;font-size:1rem;display:inline-flex;align-items:center;gap:.625rem">
+          İlk Gönderini Oluştur
         </button>
-        <div id="section-published" class="section-body">
-          <div id="published-grid" class="post-grid">
-            <div class="post-card" onclick="openPostDetail(this)">
-              <div class="post-thumb">
-                <img src="/demo-post.png" class="thumb-img" alt="Post"/>
-                <span class="post-badge badge-published">Yayınlanan</span>
-              </div>
-              <div class="post-info">
-                <p class="post-title">Yaz koleksiyonu lansmanı ✨</p>
-                <p class="post-date">2 gün önce</p>
-              </div>
-            </div>
-            <div class="post-card" onclick="openPostDetail(this)">
-              <div class="post-thumb">
-                <img src="/demo-photo.avif" class="thumb-img" style="filter:hue-rotate(15deg) saturate(1.2)" alt="Post"/>
-                <span class="post-badge badge-published">Yayınlanan</span>
-              </div>
-              <div class="post-info">
-                <p class="post-title">Yeni gelenler — hemen al 🛍️</p>
-                <p class="post-date">5 gün önce</p>
-              </div>
-            </div>
-            <div class="post-card" onclick="openPostDetail(this)">
-              <div class="post-thumb">
-                <img src="/demo-post.png" class="thumb-img" style="filter:brightness(.85) contrast(1.1)" alt="Post"/>
-                <span class="post-badge badge-published">Yayınlanan</span>
-              </div>
-              <div class="post-info">
-                <p class="post-title">Hafta sonu stil rehberi 💫</p>
-                <p class="post-date">1 hafta önce</p>
-              </div>
-            </div>
-          </div>
-        </div>
-      </section>
-
-      <!-- Scheduled Section -->
-      <section class="dash-section">
-        <button class="section-toggle" onclick="toggleSection('scheduled-sec')" aria-expanded="true">
-          <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="none" viewBox="0 0 24 24" stroke="#fbbf24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z"/></svg>
-          <h2 class="section-title">Planlanmış</h2>
-          <span class="section-count">(1)</span>
-          <svg id="chevron-scheduled-sec" class="chevron" xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"/></svg>
-        </button>
-        <div id="section-scheduled-sec" class="section-body">
-          <div class="post-grid">
-            <div class="post-card" style="border-color:rgba(251,191,36,.2)" onclick="openPostDetail(this)">
-              <div class="post-thumb">
-                <img src="/demo-photo.avif" class="thumb-img" style="filter:sepia(.25)" alt="Post"/>
-                <span class="post-badge badge-scheduled">Planlanmış</span>
-              </div>
-              <div class="post-info">
-                <p class="post-title">Cuma dropu 🔥</p>
-                <p class="post-date" style="color:#fbbf24">Yarın · 19:00</p>
-              </div>
-            </div>
-          </div>
-        </div>
-      </section>
-
-      <!-- Drafts Section -->
-      <section class="dash-section" style="margin-bottom:0">
-        <button class="section-toggle" onclick="toggleSection('drafts')" aria-expanded="true">
-          <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="none" viewBox="0 0 24 24" stroke="#60a5fa"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z"/></svg>
-          <h2 class="section-title">Taslaklar</h2>
-          <span id="drafts-count" class="section-count">(2)</span>
-          <svg id="chevron-drafts" class="chevron" xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"/></svg>
-        </button>
-        <div id="section-drafts" class="section-body">
-          <div id="drafts-grid" class="post-grid">
-            <div class="post-card" onclick="openPostDetail(this)">
-              <div class="post-thumb">
-                <img src="/demo-post.png" class="thumb-img" style="filter:grayscale(.55)" alt="Draft"/>
-                <span class="post-badge badge-draft">Taslak</span>
-              </div>
-              <div class="post-info">
-                <p class="post-title muted-text">İsimsiz taslak</p>
-                <p class="post-date">3 saat önce</p>
-              </div>
-            </div>
-            <div class="post-card" onclick="openPostDetail(this)">
-              <div class="post-thumb">
-                <img src="/demo-photo.avif" class="thumb-img" style="filter:grayscale(.3) brightness(.8)" alt="Draft"/>
-                <span class="post-badge badge-draft">Taslak</span>
-              </div>
-              <div class="post-info">
-                <p class="post-title muted-text">Ürün vitrini</p>
-                <p class="post-date">Dün</p>
-              </div>
-            </div>
-          </div>
-        </div>
-      </section>
+      </div>
 
     </div>
 
@@ -258,8 +158,8 @@ import '../styles/global.css';
       <!-- COMPOSE SUB-VIEW -->
       <div id="create-compose">
         <header style="text-align:center;margin-bottom:2rem">
-          <h1 class="display-heading gradient-text" style="font-size:2.25rem">Ne oluşturmak istersin?</h1>
-          <p class="muted-text" style="margin-top:.5rem">Ürünlerini sihirli içeriklere dönüştür</p>
+          <h1 class="display-heading gradient-text" style="font-size:2.25rem">Yeni Gönderi Oluştur</h1>
+          <p class="muted-text" style="margin-top:.5rem">Ürün görsellerinizi yükleyin ve AI mükemmel başlığı yazsın.</p>
         </header>
 
         <!-- Composer card -->
@@ -268,7 +168,7 @@ import '../styles/global.css';
           <div id="composer-thumb" class="hidden">
             <div style="position:relative;display:inline-block">
               <div id="composer-thumb-img-wrap">
-                <img id="composer-thumb-img" src="/demo-photo.avif" alt="Yüklenen" />
+                <img id="composer-thumb-img" src="/photos-generated/non-AI.jpeg" alt="Yüklenen" />
               </div>
               <button onclick="removeComposerImage()" id="thumb-remove-btn" aria-label="Kaldır">×</button>
             </div>
@@ -276,29 +176,25 @@ import '../styles/global.css';
 
           <!-- Textarea -->
           <textarea id="composer-textarea" rows="4"
-            placeholder="Ürününü ya da çekmek istediğin atmosferi tarif et…&#10;&#10;Örn: Deri ceket, Paris sokakları, şık ve modern..."></textarea>
+            placeholder="örn. Sıcak kafe atmosferi, ahşap masa, sabah ışığı — huzurlu bir ortam."></textarea>
 
           <!-- Bottom bar -->
           <div id="composer-bar">
             <div id="composer-chips">
               <button class="chip" id="upload-chip" onclick="showPresetPicker()">
                 <svg xmlns="http://www.w3.org/2000/svg" width="15" height="15" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 16l4.586-4.586a2 2 0 012.828 0L16 16m-2-2l1.586-1.586a2 2 0 012.828 0L20 14m-6-6h.01M6 20h12a2 2 0 002-2V6a2 2 0 00-2-2H6a2 2 0 00-2 2v12a2 2 0 002 2z"/></svg>
-                Fotoğraf Yükle
+                Görsel Yükle
               </button>
-              <button class="chip" id="ai-toggle-btn" onclick="toggleAI()" data-ai="on">
+              <button class="chip active" id="ai-toggle-btn" onclick="toggleAI()" data-ai="on">
                 <svg id="ai-icon-zap" xmlns="http://www.w3.org/2000/svg" width="14" height="14" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 10V3L4 14h7v7l9-11h-7z"/></svg>
                 <svg id="ai-icon-zapoff" xmlns="http://www.w3.org/2000/svg" width="14" height="14" fill="none" viewBox="0 0 24 24" stroke="currentColor" class="hidden"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 17l-5-5m0 0L7 7m5 5l5-5m-5 5l-5 5"/></svg>
                 AI <span id="ai-label">On</span>
-              </button>
-              <button class="chip" id="settings-chip" onclick="toggleAISettings()">
-                <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10.325 4.317c.426-1.756 2.924-1.756 3.35 0a1.724 1.724 0 002.573 1.066c1.543-.94 3.31.826 2.37 2.37a1.724 1.724 0 001.065 2.572c1.756.426 1.756 2.924 0 3.35a1.724 1.724 0 00-1.066 2.573c.94 1.543-.826 3.31-2.37 2.37a1.724 1.724 0 00-2.572 1.065c-.426 1.756-2.924 1.756-3.35 0a1.724 1.724 0 00-2.573-1.066c-1.543.94-3.31-.826-2.37-2.37a1.724 1.724 0 00-1.065-2.572c-1.756-.426-1.756-2.924 0-3.35a1.724 1.724 0 001.066-2.573c-.94-1.543.826-3.31 2.37-2.37.996.608 2.296.07 2.572-1.065z"/><circle cx="12" cy="12" r="3" stroke-width="2"/></svg>
-                Ayarlar
               </button>
             </div>
             <button id="composer-continue-btn" class="gradient-btn" onclick="onComposerContinue()"
               style="padding:.5rem 1.125rem;border-radius:.625rem;font-size:.875rem;display:flex;align-items:center;gap:.375rem;flex-shrink:0">
               <svg id="continue-img-icon" xmlns="http://www.w3.org/2000/svg" width="15" height="15" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 16l4.586-4.586a2 2 0 012.828 0L16 16m-2-2l1.586-1.586a2 2 0 012.828 0L20 14m-6-6h.01M6 20h12a2 2 0 002-2V6a2 2 0 00-2-2H6a2 2 0 00-2 2v12a2 2 0 002 2z"/></svg>
-              <span id="continue-btn-text">Fotoğraf Seç</span>
+              <span id="continue-btn-text">Görsel Yükle</span>
               <svg xmlns="http://www.w3.org/2000/svg" width="15" height="15" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14 5l7 7m0 0l-7 7m7-7H3"/></svg>
             </button>
           </div>
@@ -339,13 +235,13 @@ import '../styles/global.css';
         <div id="preset-picker" class="hidden">
           <p class="settings-label" style="margin-bottom:.75rem">ÖRNEK FOTOĞRAFLAR</p>
           <div style="display:grid;grid-template-columns:repeat(2,1fr);gap:.75rem;max-width:22rem">
-            <button class="preset-btn" id="preset-a" onclick="selectPreset('/demo-photo.avif','preset-a')">
-              <img src="/demo-photo.avif" alt="Ürün fotoğrafı" style="width:100%;height:100%;object-fit:contain"/>
-              <div class="preset-label-overlay">📦 Ürün Fotoğrafı</div>
+            <button class="preset-btn" id="preset-a" onclick="selectPreset('/photos-generated/non-AI.jpeg','preset-a')">
+              <img src="/photos-generated/non-AI.jpeg" alt="Ürün fotoğrafı" style="width:100%;height:100%;object-fit:contain"/>
+              <div class="preset-label-overlay">🧥 Ürün Fotoğrafı</div>
             </button>
-            <button class="preset-btn" id="preset-b" onclick="selectPreset('/demo-post.png','preset-b')">
-              <img src="/demo-post.png" alt="Moda çekimi" style="width:100%;height:100%;object-fit:contain"/>
-              <div class="preset-label-overlay">👗 Moda Çekimi</div>
+            <button class="preset-btn" id="preset-b" onclick="selectPreset('/photos-generated/02.png','preset-b')">
+              <img src="/photos-generated/02.png" alt="Düz çekim" style="width:100%;height:100%;object-fit:cover"/>
+              <div class="preset-label-overlay">📸 Düz Çekim</div>
             </button>
           </div>
         </div>
@@ -358,54 +254,54 @@ import '../styles/global.css';
           <!-- Left: product image -->
           <div class="panel-card">
             <div class="panel-card-header">
-              <h2 class="panel-title">Ürün Fotoğrafı</h2>
+              <h2 class="panel-title">Ürün Görseli</h2>
               <button class="icon-circle-btn" onclick="backToCompose()" title="Değiştir">
                 <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15.232 5.232l3.536 3.536m-2.036-5.036a2.5 2.5 0 113.536 3.536L6.5 21.036H3v-3.572L16.732 3.732z"/></svg>
               </button>
             </div>
             <div class="product-img-wrap">
-              <img id="product-preview-img" src="/demo-photo.avif" alt="Ürün" style="width:100%;height:100%;object-fit:contain"/>
+              <img id="product-preview-img" src="/photos-generated/non-AI.jpeg" alt="Ürün" style="width:100%;height:100%;object-fit:contain"/>
             </div>
           </div>
 
           <!-- Right: templates -->
           <div class="panel-card">
             <div class="panel-card-header">
-              <h2 class="panel-title">Fotoğraf Şablonları</h2>
+              <h2 class="panel-title">Çekim Şablonları</h2>
             </div>
             <div class="template-grid" id="template-grid">
               <button class="tpl-btn selected" data-id="flatlay" onclick="toggleTemplate(this)">
-                <div class="tpl-bg" style="background:linear-gradient(135deg,#374151,#1f2937)"></div>
+                <div class="tpl-bg" style="background-image:url('/demo-tpl-flatlay.png');background-size:cover;background-position:center"></div>
                 <div class="tpl-overlay"></div>
                 <span class="tpl-label">Düz Çekim</span>
                 <div class="tpl-check">✓</div>
               </button>
               <button class="tpl-btn selected" data-id="model_tryon" onclick="toggleTemplate(this)">
-                <div class="tpl-bg" style="background:linear-gradient(135deg,#5b21b6,#3b0764)"></div>
+                <div class="tpl-bg" style="background-image:url('/demo-tpl-model.png');background-size:cover;background-position:top center"></div>
                 <div class="tpl-overlay"></div>
                 <span class="tpl-label">Model Dene</span>
                 <div class="tpl-check">✓</div>
               </button>
               <button class="tpl-btn" data-id="in_use" onclick="toggleTemplate(this)">
-                <div class="tpl-bg" style="background:linear-gradient(135deg,#be185d,#7f1d1d)"></div>
+                <div class="tpl-bg" style="background-image:url('/demo-tpl-reklam.png');background-size:cover;background-position:center"></div>
                 <div class="tpl-overlay"></div>
-                <span class="tpl-label">Kullanımda</span>
+                <span class="tpl-label">Reklam</span>
                 <div class="tpl-check">✓</div>
               </button>
               <button class="tpl-btn" data-id="collage" onclick="toggleTemplate(this)">
-                <div class="tpl-bg" style="background:linear-gradient(135deg,#b45309,#78350f)"></div>
+                <div class="tpl-bg" style="background-image:url('/demo-tpl-kolaj.png');background-size:cover;background-position:center"></div>
                 <div class="tpl-overlay"></div>
                 <span class="tpl-label">Kolaj</span>
                 <div class="tpl-check">✓</div>
               </button>
               <button class="tpl-btn" data-id="back_shot" onclick="toggleTemplate(this)">
-                <div class="tpl-bg" style="background:linear-gradient(135deg,#065f46,#064e3b)"></div>
+                <div class="tpl-bg" style="background-image:url('/demo-tpl-arka.png');background-size:cover;background-position:center"></div>
                 <div class="tpl-overlay"></div>
                 <span class="tpl-label">Arka Görünüm</span>
                 <div class="tpl-check">✓</div>
               </button>
               <button class="tpl-btn selected" data-id="photoshoot" onclick="toggleTemplate(this)">
-                <div class="tpl-bg" style="background:linear-gradient(135deg,#0369a1,#1e3a5f)"></div>
+                <div class="tpl-bg" style="background-image:url('/demo-tpl-fotograf.png');background-size:cover;background-position:top center"></div>
                 <div class="tpl-overlay"></div>
                 <span class="tpl-label">Fotoğraf Çekimi</span>
                 <div class="tpl-check">✓</div>
@@ -413,6 +309,7 @@ import '../styles/global.css';
             </div>
           </div>
         </div>
+        <p class="muted-text" style="font-size:.75rem;margin-top:.875rem;text-align:center">Eğer kıyafetin arka ya da sırt kısmını yüklemezseniz model tahmin etmeye çalışır ve performans düşer.</p>
 
         <!-- Prompt readonly textarea -->
         <textarea id="template-prompt-display" class="prompt-readonly" rows="2" readonly
@@ -434,28 +331,52 @@ import '../styles/global.css';
          VIEW: PREVIEW
     ──────────────────────────────────── -->
     <div id="view-preview" class="view hidden" style="max-width:56rem;margin:0 auto">
-      <div class="two-panel" style="align-items:flex-start">
 
-        <!-- Left: image carousel -->
+      <!-- Preview header row -->
+      <div style="display:flex;align-items:flex-start;justify-content:space-between;gap:1rem;margin-bottom:1.75rem;flex-wrap:wrap">
         <div>
-          <p class="settings-label" style="margin-bottom:.875rem">AI GÖRSELLERİ</p>
+          <h1 class="display-heading" style="font-size:1.875rem;font-weight:700">Gönderinizi Seçin</h1>
+          <p class="muted-text" style="margin-top:.25rem;font-size:.875rem">Sizin için 5 varyasyon oluşturduk. Favorinizi seçin.</p>
+        </div>
+        <div style="display:flex;gap:.625rem;flex-shrink:0;flex-wrap:wrap">
+          <button class="outline-btn" onclick="resetCreateFlow()" style="display:flex;align-items:center;gap:.375rem;font-size:.8125rem;padding:.4375rem .875rem">
+            <svg xmlns="http://www.w3.org/2000/svg" width="13" height="13" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 4v16m8-8H4"/></svg>
+            Yeni Gönderi
+          </button>
+          <button class="outline-btn" onclick="saveDraft()" style="display:flex;align-items:center;gap:.375rem;font-size:.8125rem;padding:.4375rem .875rem">
+            <svg xmlns="http://www.w3.org/2000/svg" width="13" height="13" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 7H5a2 2 0 00-2 2v9a2 2 0 002 2h14a2 2 0 002-2V9a2 2 0 00-2-2h-3m-1 4l-3 3m0 0l-3-3m3 3V4"/></svg>
+            Taslağa Kaydet
+          </button>
+          <button class="gradient-btn" id="to-editor-btn" onclick="gotoEditor()"
+            style="padding:.4375rem 1rem;border-radius:.625rem;font-size:.8125rem;display:flex;align-items:center;gap:.375rem">
+            Editöre Devam Et
+            <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14 5l7 7m0 0l-7 7m7-7H3"/></svg>
+          </button>
+        </div>
+      </div>
+
+      <div class="preview-main-grid">
+
+        <!-- Left: image grid -->
+        <div>
+          <p class="settings-label" id="preview-sel-label" style="margin-bottom:.875rem">GÖRSEL SEÇ — 0 SEÇİLİ</p>
           <div id="preview-carousel" class="preview-carousel">
             <!-- Slots injected by JS -->
           </div>
           <p id="preview-hint" class="muted-text" style="font-size:.75rem;margin-top:.75rem;text-align:center">Birden fazla görsel seçebilirsiniz</p>
         </div>
 
-        <!-- Right: caption options + hashtags -->
+        <!-- Right: caption select -->
         <div style="display:flex;flex-direction:column;gap:1rem">
 
           <div class="panel-card" style="padding:1.25rem">
-            <p class="settings-label" style="margin-bottom:.875rem">AÇIKLAMA STİLİ</p>
+            <p class="settings-label" style="margin-bottom:.875rem">CAPTİON SEÇ</p>
             <div id="caption-styles" style="display:flex;flex-direction:column;gap:.5rem">
               <label class="caption-style-option selected" data-idx="0">
                 <input type="radio" name="cap-style" value="0" checked style="display:none"/>
                 <div class="cap-style-dot"></div>
                 <div>
-                  <p class="cap-style-name">Profesyonel</p>
+                  <p class="cap-style-name">TREND</p>
                   <p class="cap-style-preview" id="cap-preview-0"></p>
                 </div>
               </label>
@@ -463,7 +384,7 @@ import '../styles/global.css';
                 <input type="radio" name="cap-style" value="1" style="display:none"/>
                 <div class="cap-style-dot"></div>
                 <div>
-                  <p class="cap-style-name">Gündelik</p>
+                  <p class="cap-style-name">SADE</p>
                   <p class="cap-style-preview" id="cap-preview-1"></p>
                 </div>
               </label>
@@ -471,7 +392,7 @@ import '../styles/global.css';
                 <input type="radio" name="cap-style" value="2" style="display:none"/>
                 <div class="cap-style-dot"></div>
                 <div>
-                  <p class="cap-style-name">Yaratıcı</p>
+                  <p class="cap-style-name">İDDİALI</p>
                   <p class="cap-style-preview" id="cap-preview-2"></p>
                 </div>
               </label>
@@ -488,13 +409,6 @@ import '../styles/global.css';
             </div>
             <div id="preview-hashtags" style="display:flex;flex-wrap:wrap;gap:.375rem"></div>
           </div>
-
-          <button class="gradient-btn" id="to-editor-btn" onclick="gotoEditor()"
-            style="padding:.625rem 1.375rem;border-radius:.625rem;font-size:.875rem;display:flex;align-items:center;justify-content:center;gap:.5rem;width:100%">
-            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M11 5H6a2 2 0 00-2 2v11a2 2 0 002 2h11a2 2 0 002-2v-5m-1.414-9.414a2 2 0 112.828 2.828L11.828 15H9v-2.828l8.586-8.586z"/></svg>
-            Düzenle
-            <svg xmlns="http://www.w3.org/2000/svg" width="15" height="15" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14 5l7 7m0 0l-7 7m7-7H3"/></svg>
-          </button>
         </div>
       </div>
     </div>
@@ -510,7 +424,7 @@ import '../styles/global.css';
           <p class="settings-label" style="margin-bottom:.875rem">SEÇİLEN GÖRSELLER</p>
           <div id="editor-img-wrap" style="position:relative;border-radius:.75rem;overflow:hidden;background:var(--surface);border:1px solid var(--border);max-width:280px">
             <div style="aspect-ratio:4/5">
-              <img id="editor-main-img" src="/demo-photo.avif" alt="Seçilen" style="width:100%;height:100%;object-fit:contain"/>
+              <img id="editor-main-img" src="/photos-generated/01.png" alt="Seçilen" style="width:100%;height:100%;object-fit:cover"/>
             </div>
             <button id="editor-prev" class="carousel-arrow" style="left:.5rem" onclick="editorCarousel(-1)">‹</button>
             <button id="editor-next" class="carousel-arrow" style="right:.5rem" onclick="editorCarousel(1)">›</button>
@@ -580,7 +494,7 @@ import '../styles/global.css';
       <div class="post-grid">
         <div class="post-card" style="border-color:rgba(251,191,36,.2)">
           <div class="post-thumb">
-            <img src="/demo-photo.avif" class="thumb-img" style="filter:sepia(.25)" alt="Post"/>
+            <img src="/photos-generated/06.png" class="thumb-img" alt="Post"/>
             <span class="post-badge badge-scheduled">Planlanmış</span>
           </div>
           <div class="post-info">
@@ -606,6 +520,576 @@ import '../styles/global.css';
           Ana Sayfaya Dön
         </button>
       </div>
+    </div>
+
+    <!-- ────────────────────────────────────
+         VIEW: CAMPAIGNS
+    ──────────────────────────────────── -->
+    <div id="view-campaigns" class="view hidden" style="max-width:60rem;margin:0 auto">
+
+      <!-- Page header -->
+      <div style="display:flex;align-items:flex-start;justify-content:space-between;margin-bottom:1.5rem;gap:1rem">
+        <div style="display:flex;align-items:center;gap:1rem">
+          <div style="width:2.75rem;height:2.75rem;border-radius:.875rem;background:rgba(109,40,217,.18);display:flex;align-items:center;justify-content:center;flex-shrink:0">
+            <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="none" viewBox="0 0 24 24" stroke="#A78BFA"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M11 5.882V19.24a1.76 1.76 0 01-3.417.592l-2.147-6.15M18 13a3 3 0 100-6M5.436 13.683A4.001 4.001 0 017 6h1.832c4.1 0 7.625-1.234 9.168-3v14c-1.543-1.766-5.067-3-9.168-3H7a3.988 3.988 0 01-1.564-.317z"/></svg>
+          </div>
+          <div>
+            <h1 style="font-size:1.5rem;font-weight:700">Kampanya Hikayeleri</h1>
+            <p class="muted-text" style="font-size:.875rem;margin-top:.125rem">Kampanya fotoğrafını yükle, tanıtımını açıkla — paylaşıma hazır 9:16 formatlı bir Instagram Hikayesi al.</p>
+          </div>
+        </div>
+        <button class="gradient-btn" style="padding:.5rem 1.125rem;border-radius:.625rem;font-size:.875rem;display:flex;align-items:center;gap:.375rem;flex-shrink:0" onclick="showToast('Demo modunda kampanya oluşturulamaz','Gerçek uygulamada deneyin →')">
+          <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M12 4v16m8-8H4"/></svg>
+          Yeni Kampanya
+        </button>
+      </div>
+
+      <!-- Tips accordion -->
+      <div class="camp-accordion" id="camp-tips">
+        <button class="camp-accordion-btn" onclick="toggleCampTips()" aria-expanded="false">
+          <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="none" viewBox="0 0 24 24" stroke="#A78BFA"><circle cx="12" cy="12" r="10" stroke-width="2"/><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 16v-4M12 8h.01"/></svg>
+          <span>Harika kampanya hikayesi için ipuçları</span>
+          <svg id="camp-tips-chevron" class="chevron" style="margin-left:auto" xmlns="http://www.w3.org/2000/svg" width="18" height="18" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"/></svg>
+        </button>
+        <div id="camp-tips-body" class="section-body collapsed" style="padding:0 1.125rem">
+          <div style="padding-bottom:1rem;display:flex;flex-direction:column;gap:.5rem">
+            <p class="muted-text" style="font-size:.875rem">• Kampanya adını ve indirim oranını açıkça belirt</p>
+            <p class="muted-text" style="font-size:.875rem">• Canlı ve enerjik renk tonlarını tarif et</p>
+            <p class="muted-text" style="font-size:.875rem">• Hedef kitleye yönelik bir çağrı ekle (örn. "Hızlı ol, stok sınırlı!")</p>
+            <p class="muted-text" style="font-size:.875rem">• 9:16 dikey format Instagram Hikayesi için optimize edilir</p>
+          </div>
+        </div>
+      </div>
+
+      <!-- New campaign form -->
+      <div class="panel-card" style="padding:1.5rem;margin-top:1rem;margin-bottom:1.75rem">
+        <h2 style="font-size:1.125rem;font-weight:700;margin-bottom:.25rem">Yeni kampanya hikayesi</h2>
+        <p class="muted-text" style="font-size:.8125rem;margin-bottom:1.375rem">Fotoğrafını yükle, kampanyayı anlat. Üretim arka planda yürür — sayfadan çıkabilir veya yenisini başlatabilirsin.</p>
+
+        <div class="camp-form-grid">
+          <!-- Left: photo upload -->
+          <div>
+            <div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:.5rem">
+              <span style="font-size:.875rem;font-weight:500">Kampanya fotoğrafı</span>
+              <span class="muted-text" style="font-size:.75rem">isteğe bağlı</span>
+            </div>
+            <div class="camp-upload-area" onclick="showToast('Demo modunda yükleme yapılamaz','Görsel yükleme simüle edildi ✓')">
+              <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" fill="none" viewBox="0 0 24 24" stroke="rgba(196,181,253,.3)"><rect x="3" y="3" width="18" height="18" rx="2" stroke-width="1.5"/><circle cx="8.5" cy="8.5" r="1.5" stroke-width="1.5"/><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M21 15l-5-5L5 21"/></svg>
+              <p style="font-size:.875rem;font-weight:500;margin-top:.625rem">Kampanya fotoğrafını tıkla veya sürükle bırak</p>
+              <p class="muted-text" style="font-size:.75rem;margin-top:.25rem">JPG, PNG, WEBP — maks. 25 MB</p>
+            </div>
+          </div>
+
+          <!-- Right: description -->
+          <div style="display:flex;flex-direction:column">
+            <div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:.5rem">
+              <span style="font-size:.875rem;font-weight:500">Kampanya açıklaması</span>
+              <span style="font-size:.75rem;color:#f87171">zorunlu</span>
+            </div>
+            <textarea id="campaign-desc" class="camp-textarea" rows="7"
+              placeholder="örn. Hafta sonu indirimi — tüm ayakkabılarda %30 indirim. Canlı, enerjik renkler. İndirimi öne çıkar."
+              oninput="onCampDescInput(this)"></textarea>
+            <p class="muted-text" style="font-size:.75rem;text-align:right;margin-top:.375rem"><span id="camp-char-count">0</span>/500</p>
+          </div>
+        </div>
+
+        <div style="display:flex;justify-content:flex-end;margin-top:1rem">
+          <button class="gradient-btn" id="create-story-btn" disabled
+            style="padding:.625rem 1.375rem;border-radius:.625rem;font-size:.875rem;display:flex;align-items:center;gap:.5rem;opacity:.45;cursor:not-allowed"
+            onclick="simulateCampaignCreate()">
+            <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 3l14 9-14 9V3z"/></svg>
+            Hikaye Oluştur
+          </button>
+        </div>
+      </div>
+
+      <!-- Past campaigns list -->
+      <h2 style="font-size:1.0625rem;font-weight:600;margin-bottom:1rem">Kampanyaların</h2>
+      <div class="post-grid">
+        <div class="post-card" onclick="openPostDetail(this)">
+          <div class="post-thumb" style="background:linear-gradient(135deg,#4c1d95,#7c3aed)">
+            <div style="width:100%;height:100%;display:flex;align-items:center;justify-content:center">
+              <div style="text-align:center;padding:.75rem">
+                <p style="font-size:.75rem;font-weight:700;color:#fff">%20 İNDİRİM</p>
+                <p style="font-size:.625rem;color:rgba(255,255,255,.7);margin-top:.25rem">Tüm ürünlerde</p>
+              </div>
+            </div>
+            <span class="post-badge badge-published">Yayınlanan</span>
+          </div>
+          <div class="post-info">
+            <p class="post-title">Bahar indirimi kampanyası</p>
+            <p class="post-date">3 gün önce</p>
+          </div>
+        </div>
+        <div class="post-card" onclick="openPostDetail(this)">
+          <div class="post-thumb" style="background:linear-gradient(135deg,#b45309,#78350f)">
+            <div style="width:100%;height:100%;display:flex;align-items:center;justify-content:center">
+              <div style="text-align:center;padding:.75rem">
+                <p style="font-size:.75rem;font-weight:700;color:#fff">YENİ SEZON</p>
+                <p style="font-size:.625rem;color:rgba(255,255,255,.7);margin-top:.25rem">Koleksiyon 2025</p>
+              </div>
+            </div>
+            <span class="post-badge badge-scheduled">Planlanmış</span>
+          </div>
+          <div class="post-info">
+            <p class="post-title">Yaz koleksiyonu lansmanı</p>
+            <p class="post-date" style="color:#fbbf24">Yarın · 10:00</p>
+          </div>
+        </div>
+      </div>
+
+    </div>
+
+    <!-- ────────────────────────────────────
+         VIEW: PROFILE
+    ──────────────────────────────────── -->
+    <div id="view-profile" class="view hidden" style="max-width:64rem;margin:0 auto">
+
+      <div class="profile-grid">
+
+        <!-- Left column -->
+        <div style="display:flex;flex-direction:column;gap:1rem">
+
+          <!-- Activity summary -->
+          <div class="panel-card" style="padding:1.25rem">
+            <h2 style="font-size:1rem;font-weight:700;margin-bottom:1rem">Aktivite Özeti</h2>
+            <div style="display:flex;flex-direction:column;gap:.375rem">
+              <div class="activity-row">
+                <div class="activity-icon">
+                  <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 19v-6a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2a2 2 0 002-2zm0 0V9a2 2 0 012-2h2a2 2 0 012 2v10m-6 0a2 2 0 002 2h2a2 2 0 002-2m0 0V5a2 2 0 012-2h2a2 2 0 012 2v14a2 2 0 01-2 2h-2a2 2 0 01-2-2z"/></svg>
+                </div>
+                <span style="flex:1;font-size:.875rem">Toplam Gönderi</span>
+                <span style="font-size:.875rem;font-weight:700">0</span>
+              </div>
+              <div class="activity-row">
+                <div class="activity-icon">
+                  <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="none" viewBox="0 0 24 24" stroke="currentColor"><rect x="3" y="4" width="18" height="18" rx="2" stroke-width="2"/><path stroke-linecap="round" stroke-width="2" d="M16 2v4M8 2v4M3 10h18"/></svg>
+                </div>
+                <span style="flex:1;font-size:.875rem">Planlanan</span>
+                <span style="font-size:.875rem;font-weight:700">0</span>
+              </div>
+              <div class="activity-row">
+                <div class="activity-icon">
+                  <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 7h8m0 0v8m0-8l-8 8-4-4-6 6"/></svg>
+                </div>
+                <span style="flex:1;font-size:.875rem">Etkileşim</span>
+                <span style="font-size:.875rem;font-weight:700;color:var(--muted-fg)">—</span>
+              </div>
+            </div>
+          </div>
+
+          <!-- Pro plan card -->
+          <div class="panel-card pro-plan-card" style="padding:1.25rem">
+            <p style="font-size:.6875rem;font-weight:700;color:var(--accent-lt);letter-spacing:.1em;margin-bottom:.625rem">● PRO PLAN</p>
+            <div style="display:flex;align-items:flex-start;justify-content:space-between;gap:.75rem">
+              <div>
+                <h3 style="font-size:1.125rem;font-weight:700;margin-bottom:.375rem">Pro Plan Aktif</h3>
+                <p class="muted-text" style="font-size:.8125rem;line-height:1.5">Sınırsız AI üretimi ve gelişmiş planlama özelliklerine sahipsiniz.</p>
+              </div>
+              <div style="background:rgba(109,40,217,.25);border-radius:50%;width:2.5rem;height:2.5rem;display:flex;align-items:center;justify-content:center;flex-shrink:0">
+                <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" fill="none" viewBox="0 0 24 24" stroke="#A78BFA"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M5 13l4 4L19 7"/></svg>
+              </div>
+            </div>
+            <button class="outline-btn" style="margin-top:1rem;width:100%;font-size:.8125rem" onclick="showToast('Abonelik yönetimi','Demo modunda kullanılamaz')">Aboneliği Yönet</button>
+          </div>
+
+        </div>
+
+        <!-- Right column -->
+        <div style="display:flex;flex-direction:column;gap:1rem">
+
+          <!-- Personal info -->
+          <div class="panel-card" style="padding:1.5rem">
+            <h2 class="profile-section-title">Kişisel Bilgiler</h2>
+            <div class="profile-form-grid">
+              <div>
+                <label class="settings-field-label">Ad Soyad</label>
+                <div class="profile-input-wrap">
+                  <svg class="profile-input-icon" xmlns="http://www.w3.org/2000/svg" width="15" height="15" fill="none" viewBox="0 0 24 24" stroke="currentColor"><circle cx="12" cy="8" r="4" stroke-width="2"/><path stroke-linecap="round" stroke-width="2" d="M4 20c0-4 3.582-7 8-7s8 3 8 7"/></svg>
+                  <input type="text" class="profile-input" value="Demo User"/>
+                </div>
+              </div>
+              <div>
+                <label class="settings-field-label">E-posta Adresi</label>
+                <div class="profile-input-wrap">
+                  <svg class="profile-input-icon" xmlns="http://www.w3.org/2000/svg" width="15" height="15" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"/></svg>
+                  <input type="text" class="profile-input" value="demo@tanit.app" disabled style="opacity:.6"/>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Business info -->
+          <div class="panel-card" style="padding:1.5rem">
+            <h2 class="profile-section-title">İşletme Bilgileri</h2>
+            <div class="profile-form-grid" style="margin-bottom:1rem">
+              <div>
+                <label class="settings-field-label">Şirket / Marka Adı</label>
+                <input type="text" class="profile-input" style="padding:.625rem .875rem;width:100%" value="Tanit Demo"/>
+              </div>
+              <div>
+                <label class="settings-field-label">Sektör / Alan</label>
+                <div style="position:relative">
+                  <select class="settings-select">
+                    <option>Kafe / Restoran</option>
+                    <option>Moda / Giyim</option>
+                    <option>Güzellik / Kozmetik</option>
+                    <option>Teknoloji</option>
+                    <option>Spor / Fitness</option>
+                    <option>Diğer</option>
+                  </select>
+                  <svg style="position:absolute;right:.75rem;top:50%;transform:translateY(-50%);pointer-events:none" xmlns="http://www.w3.org/2000/svg" width="14" height="14" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"/></svg>
+                </div>
+              </div>
+            </div>
+            <div style="margin-bottom:1.25rem">
+              <label class="settings-field-label">Web Sitesi</label>
+              <input type="text" class="profile-input" style="padding:.625rem .875rem;width:100%" placeholder="https://"/>
+            </div>
+            <div style="display:flex;justify-content:flex-end">
+              <button class="gradient-btn" style="padding:.625rem 1.375rem;border-radius:.625rem;font-size:.875rem;display:flex;align-items:center;gap:.5rem"
+                onclick="showToast('Değişiklikler kaydedildi ✓','Demo modunda simüle edildi')">
+                <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 7H5a2 2 0 00-2 2v9a2 2 0 002 2h14a2 2 0 002-2V9a2 2 0 00-2-2h-3m-1 4l-3 3m0 0l-3-3m3 3V4"/></svg>
+                Değişiklikleri Kaydet
+              </button>
+            </div>
+          </div>
+
+          <!-- Instagram account -->
+          <div class="panel-card" style="padding:1.5rem">
+            <div style="display:flex;align-items:center;gap:.75rem;margin-bottom:1.25rem">
+              <div style="width:2.25rem;height:2.25rem;border-radius:.625rem;background:linear-gradient(135deg,#f09433,#e6683c,#dc2743,#cc2366,#bc1888);display:flex;align-items:center;justify-content:center;flex-shrink:0">
+                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="#fff" viewBox="0 0 24 24"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"/></svg>
+              </div>
+              <div>
+                <h2 style="font-size:1rem;font-weight:700">Instagram Hesabı</h2>
+                <p class="muted-text" style="font-size:.8125rem">İçerik yayınlanacak hesabı bağla</p>
+              </div>
+            </div>
+
+            <!-- Connected badge -->
+            <div class="ig-connected-box">
+              <div style="display:flex;align-items:center;gap:.5rem">
+                <span class="ig-dot-green"></span>
+                <span style="font-size:.875rem;font-weight:600">Hesap Bağlı</span>
+              </div>
+              <div style="font-size:.75rem;color:var(--muted-fg);margin-top:.375rem">
+                <span>ID: 17841433631196503</span> &nbsp;·&nbsp;
+                <span>Token geçerlilik: 03.07.2026</span>
+              </div>
+              <button class="outline-btn" style="margin-top:.875rem;font-size:.8125rem;padding:.375rem .875rem;border-color:rgba(248,113,113,.25);color:#f87171"
+                onclick="showToast('Hesap ayırma','Demo modunda devre dışı')">
+                <svg xmlns="http://www.w3.org/2000/svg" width="13" height="13" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 16l4-4m0 0l-4-4m4 4H7m6 4v1a3 3 0 01-3 3H6a3 3 0 01-3-3V7a3 3 0 013-3h4a3 3 0 013 3v1"/></svg>
+                Hesabı Ayır
+              </button>
+            </div>
+
+            <!-- Profile preview -->
+            <div class="ig-profile-row">
+              <div class="ig-avatar">
+                <svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" fill="#A78BFA" viewBox="0 0 24 24"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"/></svg>
+              </div>
+              <div>
+                <p style="font-size:.9375rem;font-weight:700">TANIT CAFE 🌿</p>
+                <p style="font-size:.8125rem;color:var(--muted-fg)">@tanittcafe</p>
+                <p style="font-size:.8125rem;color:var(--muted-fg);margin-top:.25rem">Cafemize hoşgeldiniz ✨</p>
+              </div>
+            </div>
+
+            <!-- Stats grid -->
+            <div class="ig-stats-grid">
+              <div class="ig-stat-cell">
+                <svg xmlns="http://www.w3.org/2000/svg" width="13" height="13" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 20h5v-2a3 3 0 00-5.356-1.857M17 20H7m10 0v-2c0-.656-.126-1.283-.356-1.857M7 20H2v-2a3 3 0 015.356-1.857M7 20v-2c0-.656.126-1.283.356-1.857m0 0a5.002 5.002 0 019.288 0M15 7a3 3 0 11-6 0 3 3 0 016 0z"/></svg>
+                <p class="ig-stat-label">Takipçi</p>
+                <p class="ig-stat-val">18</p>
+              </div>
+              <div class="ig-stat-cell">
+                <svg xmlns="http://www.w3.org/2000/svg" width="13" height="13" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M18 9v3m0 0v3m0-3h3m-3 0h-3m-2-5a4 4 0 11-8 0 4 4 0 018 0zM3 20a6 6 0 0112 0v1H3v-1z"/></svg>
+                <p class="ig-stat-label">Takip</p>
+                <p class="ig-stat-val">7</p>
+              </div>
+              <div class="ig-stat-cell">
+                <svg xmlns="http://www.w3.org/2000/svg" width="13" height="13" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 16l4.586-4.586a2 2 0 012.828 0L16 16m-2-2l1.586-1.586a2 2 0 012.828 0L20 14m-6-6h.01M6 20h12a2 2 0 002-2V6a2 2 0 00-2-2H6a2 2 0 00-2 2v12a2 2 0 002 2z"/></svg>
+                <p class="ig-stat-label">Gönderi</p>
+                <p class="ig-stat-val">10</p>
+              </div>
+              <div class="ig-stat-cell">
+                <svg xmlns="http://www.w3.org/2000/svg" width="13" height="13" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 12a3 3 0 11-6 0 3 3 0 016 0z"/><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M2.458 12C3.732 7.943 7.523 5 12 5c4.478 0 8.268 2.943 9.542 7-1.274 4.057-5.064 7-9.542 7-4.477 0-8.268-2.943-9.542-7z"/></svg>
+                <p class="ig-stat-label">Profil ziyareti</p>
+                <p class="ig-stat-val">120</p>
+                <p class="ig-stat-sub">son 30 gün</p>
+              </div>
+              <div class="ig-stat-cell">
+                <svg xmlns="http://www.w3.org/2000/svg" width="13" height="13" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13.828 10.172a4 4 0 00-5.656 0l-4 4a4 4 0 105.656 5.656l1.102-1.101m-.758-4.899a4 4 0 005.656 0l4-4a4 4 0 00-5.656-5.656l-1.1 1.1"/></svg>
+                <p class="ig-stat-label">Erişim</p>
+                <p class="ig-stat-val">159</p>
+                <p class="ig-stat-sub">son 30 gün</p>
+              </div>
+              <div class="ig-stat-cell">
+                <svg xmlns="http://www.w3.org/2000/svg" width="13" height="13" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 7h8m0 0v8m0-8l-8 8-4-4-6 6"/></svg>
+                <p class="ig-stat-label">Etkileşim</p>
+                <p class="ig-stat-val">103</p>
+                <p class="ig-stat-sub">son 30 gün</p>
+              </div>
+              <div class="ig-stat-cell">
+                <svg xmlns="http://www.w3.org/2000/svg" width="13" height="13" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 4.354a4 4 0 110 5.292M15 21H3v-1a6 6 0 0112 0v1zm0 0h6v-1a6 6 0 00-9-5.197M13 7a4 4 0 11-8 0 4 4 0 018 0z"/></svg>
+                <p class="ig-stat-label">Etkileşen hesap</p>
+                <p class="ig-stat-val">17</p>
+                <p class="ig-stat-sub">son 30 gün</p>
+              </div>
+            </div>
+
+            <!-- Top posts -->
+            <p style="font-size:.8125rem;color:var(--muted-fg);margin:1rem 0 .625rem;display:flex;align-items:center;gap:.375rem">
+              <svg xmlns="http://www.w3.org/2000/svg" width="13" height="13" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 19v-6a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2a2 2 0 002-2zm0 0V9a2 2 0 012-2h2a2 2 0 012 2v10m-6 0a2 2 0 002 2h2a2 2 0 002-2m0 0V5a2 2 0 012-2h2a2 2 0 012 2v14a2 2 0 01-2 2h-2a2 2 0 01-2-2z"/></svg>
+              En çok etkileşim alan gönderiler
+            </p>
+            <div class="ig-posts-grid">
+              <div class="ig-post-thumb"><img src="/photos-generated/01.png" alt="post" style="width:100%;height:100%;object-fit:cover"/></div>
+              <div class="ig-post-thumb"><img src="/photos-generated/06.png" alt="post" style="width:100%;height:100%;object-fit:cover"/></div>
+              <div class="ig-post-thumb"><img src="/photos-generated/02.png" alt="post" style="width:100%;height:100%;object-fit:cover"/></div>
+              <div class="ig-post-thumb"><img src="/photos-generated/05.png" alt="post" style="width:100%;height:100%;object-fit:cover"/></div>
+              <div class="ig-post-thumb"><img src="/photos-generated/04.png" alt="post" style="width:100%;height:100%;object-fit:cover"/></div>
+              <div class="ig-post-thumb"><img src="/photos-generated/03.png" alt="post" style="width:100%;height:100%;object-fit:cover"/></div>
+              <div class="ig-post-thumb"><img src="/photos-generated/06.png" alt="post" style="width:100%;height:100%;object-fit:cover"/></div>
+              <div class="ig-post-thumb"><img src="/photos-generated/01.png" alt="post" style="width:100%;height:100%;object-fit:cover"/></div>
+              <div class="ig-post-thumb"><img src="/photos-generated/05.png" alt="post" style="width:100%;height:100%;object-fit:cover"/></div>
+            </div>
+
+          </div>
+        </div>
+      </div>
+
+    </div>
+
+    <!-- ────────────────────────────────────
+         VIEW: SETTINGS
+    ──────────────────────────────────── -->
+    <div id="view-settings" class="view hidden" style="max-width:62rem;margin:0 auto">
+
+      <div class="settings-layout">
+
+        <!-- Left sub-nav -->
+        <div class="settings-subnav panel-card">
+          <button class="settings-nav-item active" data-stab="general" onclick="switchSettingsTab(this)">
+            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="none" viewBox="0 0 24 24" stroke="currentColor"><circle cx="12" cy="12" r="10" stroke-width="2"/><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M2 12h2M20 12h2M12 2v2M12 20v2"/></svg>
+            General
+          </button>
+          <button class="settings-nav-item" data-stab="appearance" onclick="switchSettingsTab(this)">
+            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M7 21a4 4 0 01-4-4V5a2 2 0 012-2h4a2 2 0 012 2v12a4 4 0 01-4 4zm0 0h12a2 2 0 002-2v-4a2 2 0 00-2-2h-2.343M11 7.343l1.657-1.657a2 2 0 012.828 0l2.829 2.829a2 2 0 010 2.828l-8.486 8.485M7 17h.01"/></svg>
+            Appearance
+          </button>
+          <button class="settings-nav-item" data-stab="notifications" onclick="switchSettingsTab(this)">
+            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 17h5l-1.405-1.405A2.032 2.032 0 0118 14.158V11a6.002 6.002 0 00-4-5.659V5a2 2 0 10-4 0v.341C7.67 6.165 6 8.388 6 11v3.159c0 .538-.214 1.055-.595 1.436L4 17h5m6 0v1a3 3 0 11-6 0v-1m6 0H9"/></svg>
+            Notifications
+          </button>
+          <button class="settings-nav-item" data-stab="billing" onclick="switchSettingsTab(this)">
+            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 10h18M7 15h1m4 0h1m-7 4h12a3 3 0 003-3V8a3 3 0 00-3-3H6a3 3 0 00-3 3v8a3 3 0 003 3z"/></svg>
+            Billing
+          </button>
+          <button class="settings-nav-item" data-stab="security" onclick="switchSettingsTab(this)">
+            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z"/></svg>
+            Security
+          </button>
+          <button class="settings-nav-item" data-stab="whatsapp" onclick="switchSettingsTab(this)">
+            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 12h.01M12 12h.01M16 12h.01M21 12c0 4.418-4.03 8-9 8a9.863 9.863 0 01-4.255-.949L3 20l1.395-3.72C3.512 15.042 3 13.574 3 12c0-4.418 4.03-8 9-8s9 3.582 9 8z"/></svg>
+            WhatsApp Bot
+          </button>
+        </div>
+
+        <!-- Right content -->
+        <div style="display:flex;flex-direction:column;gap:1rem">
+
+          <!-- General section -->
+          <div class="settings-section" id="stab-general">
+            <div class="settings-section-hd">
+              <div class="settings-section-icon">
+                <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" fill="none" viewBox="0 0 24 24" stroke="currentColor"><circle cx="12" cy="12" r="10" stroke-width="2"/><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M2 12h2M20 12h2M12 2v2M12 20v2"/></svg>
+              </div>
+              <div>
+                <h2 style="font-size:1rem;font-weight:700">Genel Tercihler</h2>
+                <p class="muted-text" style="font-size:.8125rem">AI tercihlerinizi ve hesabınızı yönetin.</p>
+              </div>
+            </div>
+            <div style="padding:1.25rem">
+              <label class="settings-field-label">Uygulama Dili</label>
+              <div style="position:relative;max-width:22rem;margin-top:.375rem">
+                <select class="settings-select">
+                  <option>Türkçe</option>
+                  <option>English</option>
+                  <option>Deutsch</option>
+                  <option>Français</option>
+                </select>
+                <svg style="position:absolute;right:.75rem;top:50%;transform:translateY(-50%);pointer-events:none" xmlns="http://www.w3.org/2000/svg" width="14" height="14" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"/></svg>
+              </div>
+            </div>
+          </div>
+
+          <!-- Appearance section -->
+          <div class="settings-section" id="stab-appearance">
+            <div class="settings-section-hd">
+              <div class="settings-section-icon">
+                <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M7 21a4 4 0 01-4-4V5a2 2 0 012-2h4a2 2 0 012 2v12a4 4 0 01-4 4zm0 0h12a2 2 0 002-2v-4a2 2 0 00-2-2h-2.343M11 7.343l1.657-1.657a2 2 0 012.828 0l2.829 2.829a2 2 0 010 2.828l-8.486 8.485M7 17h.01"/></svg>
+              </div>
+              <div>
+                <h2 style="font-size:1rem;font-weight:700">Appearance</h2>
+                <p class="muted-text" style="font-size:.8125rem">Choose a theme for the app</p>
+              </div>
+            </div>
+            <div style="padding:1.25rem">
+              <div class="theme-cards-grid">
+                <!-- Violet Dusk (active) -->
+                <div class="theme-card active" onclick="selectTheme(this)">
+                  <div class="theme-preview" style="background:#080612">
+                    <div style="height:.5rem;border-radius:.25rem;background:rgba(196,181,253,.2);margin-bottom:.375rem"></div>
+                    <div style="height:.5rem;border-radius:.25rem;background:#6D28D9;width:70%;margin-bottom:.375rem"></div>
+                    <div style="height:.5rem;border-radius:.25rem;background:rgba(167,139,250,.4);width:50%"></div>
+                  </div>
+                  <div style="display:flex;align-items:flex-start;justify-content:space-between;margin-top:.625rem">
+                    <div>
+                      <p style="font-size:.875rem;font-weight:600">Violet Dusk</p>
+                      <p class="muted-text" style="font-size:.75rem;margin-top:.125rem">Deep dark with violet accents</p>
+                    </div>
+                    <div class="theme-dot active-dot"></div>
+                  </div>
+                </div>
+                <!-- Lavender Light -->
+                <div class="theme-card" onclick="selectTheme(this)">
+                  <div class="theme-preview" style="background:#f5f3ff">
+                    <div style="height:.5rem;border-radius:.25rem;background:#ddd6fe;margin-bottom:.375rem"></div>
+                    <div style="height:.5rem;border-radius:.25rem;background:#7c3aed;width:70%;margin-bottom:.375rem"></div>
+                    <div style="height:.5rem;border-radius:.25rem;background:#c4b5fd;width:50%"></div>
+                  </div>
+                  <div style="display:flex;align-items:flex-start;justify-content:space-between;margin-top:.625rem">
+                    <div>
+                      <p style="font-size:.875rem;font-weight:600">Lavender Light</p>
+                      <p class="muted-text" style="font-size:.75rem;margin-top:.125rem">Soft lavender, clean and bright</p>
+                    </div>
+                    <div class="theme-dot"></div>
+                  </div>
+                </div>
+                <!-- Sanctuary -->
+                <div class="theme-card" onclick="selectTheme(this)">
+                  <div class="theme-preview" style="background:#faf7f2">
+                    <div style="height:.5rem;border-radius:.25rem;background:#d6cfc4;margin-bottom:.375rem"></div>
+                    <div style="height:.5rem;border-radius:.25rem;background:#6b7c5e;width:70%;margin-bottom:.375rem"></div>
+                    <div style="height:.5rem;border-radius:.25rem;background:#a5b89a;width:50%"></div>
+                  </div>
+                  <div style="display:flex;align-items:flex-start;justify-content:space-between;margin-top:.625rem">
+                    <div>
+                      <p style="font-size:.875rem;font-weight:600">Sanctuary</p>
+                      <p class="muted-text" style="font-size:.75rem;margin-top:.125rem">Warm organic, modern living</p>
+                    </div>
+                    <div class="theme-dot"></div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Notifications section -->
+          <div class="settings-section" id="stab-notifications">
+            <div class="settings-section-hd">
+              <div class="settings-section-icon">
+                <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 17h5l-1.405-1.405A2.032 2.032 0 0118 14.158V11a6.002 6.002 0 00-4-5.659V5a2 2 0 10-4 0v.341C7.67 6.165 6 8.388 6 11v3.159c0 .538-.214 1.055-.595 1.436L4 17h5m6 0v1a3 3 0 11-6 0v-1m6 0H9"/></svg>
+              </div>
+              <div>
+                <h2 style="font-size:1rem;font-weight:700">Bildirimler</h2>
+                <p class="muted-text" style="font-size:.8125rem">Hangi konularda e-posta alacağınızı seçin.</p>
+              </div>
+            </div>
+            <div style="padding:1.25rem;display:flex;flex-direction:column;gap:.75rem">
+              <label class="notif-toggle-row">
+                <div>
+                  <p style="font-size:.875rem;font-weight:500">Gönderi yayınlandı</p>
+                  <p class="muted-text" style="font-size:.8125rem">Instagram'a başarıyla yayınlandığında bildir</p>
+                </div>
+                <div class="toggle-switch on" onclick="toggleNotif(this)"><div class="toggle-knob"></div></div>
+              </label>
+              <label class="notif-toggle-row">
+                <div>
+                  <p style="font-size:.875rem;font-weight:500">Planlanan gönderi hatırlatıcısı</p>
+                  <p class="muted-text" style="font-size:.8125rem">Planlanan gönderi öncesi e-posta gönder</p>
+                </div>
+                <div class="toggle-switch on" onclick="toggleNotif(this)"><div class="toggle-knob"></div></div>
+              </label>
+              <label class="notif-toggle-row">
+                <div>
+                  <p style="font-size:.875rem;font-weight:500">Haftalık özet</p>
+                  <p class="muted-text" style="font-size:.8125rem">Etkileşim ve içerik özetini haftalık al</p>
+                </div>
+                <div class="toggle-switch" onclick="toggleNotif(this)"><div class="toggle-knob"></div></div>
+              </label>
+            </div>
+          </div>
+
+          <!-- Billing section -->
+          <div class="settings-section hidden" id="stab-billing">
+            <div class="settings-section-hd">
+              <div class="settings-section-icon">
+                <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 10h18M7 15h1m4 0h1m-7 4h12a3 3 0 003-3V8a3 3 0 00-3-3H6a3 3 0 00-3 3v8a3 3 0 003 3z"/></svg>
+              </div>
+              <div>
+                <h2 style="font-size:1rem;font-weight:700">Billing</h2>
+                <p class="muted-text" style="font-size:.8125rem">Abonelik ve ödeme yönetimi</p>
+              </div>
+            </div>
+            <div style="padding:1.25rem">
+              <div class="pro-plan-card panel-card" style="padding:1.25rem;margin-bottom:1rem">
+                <p style="font-size:.6875rem;font-weight:700;color:var(--accent-lt);letter-spacing:.1em;margin-bottom:.5rem">● AKTİF PLAN</p>
+                <p style="font-weight:700;font-size:1.125rem">Pro Plan · ₺299/ay</p>
+                <p class="muted-text" style="font-size:.8125rem;margin-top:.25rem">Sonraki ödeme: 07.06.2026</p>
+              </div>
+              <button class="outline-btn" onclick="showToast('Fatura yönetimi','Demo modunda kullanılamaz')">Faturaları Görüntüle</button>
+            </div>
+          </div>
+
+          <!-- Security section -->
+          <div class="settings-section hidden" id="stab-security">
+            <div class="settings-section-hd">
+              <div class="settings-section-icon">
+                <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z"/></svg>
+              </div>
+              <div>
+                <h2 style="font-size:1rem;font-weight:700">Security</h2>
+                <p class="muted-text" style="font-size:.8125rem">Hesap güvenlik ayarları</p>
+              </div>
+            </div>
+            <div style="padding:1.25rem;display:flex;flex-direction:column;gap:.875rem">
+              <div>
+                <label class="settings-field-label">Mevcut Şifre</label>
+                <input type="password" class="profile-input" style="padding:.625rem .875rem;width:100%;max-width:22rem" value="••••••••" disabled/>
+              </div>
+              <button class="outline-btn" style="width:fit-content" onclick="showToast('Şifre değiştirme','Demo modunda kullanılamaz')">Şifreyi Değiştir</button>
+            </div>
+          </div>
+
+          <!-- WhatsApp Bot section -->
+          <div class="settings-section hidden" id="stab-whatsapp">
+            <div class="settings-section-hd">
+              <div class="settings-section-icon">
+                <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 12h.01M12 12h.01M16 12h.01M21 12c0 4.418-4.03 8-9 8a9.863 9.863 0 01-4.255-.949L3 20l1.395-3.72C3.512 15.042 3 13.574 3 12c0-4.418 4.03-8 9-8s9 3.582 9 8z"/></svg>
+              </div>
+              <div>
+                <h2 style="font-size:1rem;font-weight:700">WhatsApp Bot</h2>
+                <p class="muted-text" style="font-size:.8125rem">WhatsApp üzerinden içerik oluştur ve planla</p>
+              </div>
+            </div>
+            <div style="padding:1.25rem">
+              <div style="background:rgba(109,40,217,.08);border:1px solid rgba(109,40,217,.2);border-radius:.875rem;padding:1.25rem;margin-bottom:1rem">
+                <p style="font-weight:600;margin-bottom:.375rem">Bot Henüz Aktif Değil</p>
+                <p class="muted-text" style="font-size:.8125rem;line-height:1.6">WhatsApp botunu bağlayarak telefonunuzdan kolayca içerik oluşturabilir ve planlayabilirsiniz.</p>
+              </div>
+              <button class="gradient-btn" style="padding:.625rem 1.375rem;border-radius:.625rem;font-size:.875rem;display:flex;align-items:center;gap:.5rem"
+                onclick="showToast('WhatsApp Bot','Demo modunda kullanılamaz')">
+                WhatsApp Bot Kur
+              </button>
+            </div>
+          </div>
+
+        </div>
+      </div>
+
     </div>
 
   </main>
@@ -694,7 +1178,7 @@ import '../styles/global.css';
     display: flex; flex-direction: column;
     flex-shrink: 0;
     transition: width .28s cubic-bezier(.22,1,.36,1);
-    position: relative; overflow: hidden;
+    position: relative; overflow: visible;
   }
   #sidebar.collapsed { width: var(--sidebar-w-c); }
 
@@ -1081,10 +1565,9 @@ import '../styles/global.css';
 
   /* ── Template grid ── */
   .template-grid {
-    display: grid; grid-template-columns: repeat(3,1fr); gap: .625rem;
+    display: grid; grid-template-columns: repeat(2,1fr); gap: .625rem;
     padding: .875rem;
   }
-  @media (max-width: 480px) { .template-grid { grid-template-columns: repeat(2,1fr); } }
 
   .tpl-btn {
     position: relative; aspect-ratio: 1/1;
@@ -1124,8 +1607,12 @@ import '../styles/global.css';
 
   /* ── Preview carousel ── */
   .preview-carousel {
-    display: grid; grid-template-columns: repeat(2,1fr); gap: .625rem;
+    display: grid; grid-template-columns: repeat(3,1fr); gap: .625rem;
   }
+  .preview-main-grid {
+    display: grid; grid-template-columns: 1fr 18rem; gap: 1.25rem; align-items: start;
+  }
+  @media (max-width: 768px) { .preview-main-grid { grid-template-columns: 1fr; } }
   .preview-slot {
     position: relative; aspect-ratio: 4/5;
     background: var(--surface); border: 2px solid var(--border);
@@ -1200,13 +1687,14 @@ import '../styles/global.css';
   /* ── Carousel arrows ── */
   .carousel-arrow {
     position: absolute; top: 50%; transform: translateY(-50%);
-    background: rgba(13,9,32,.8); border: 1px solid var(--border);
-    color: var(--fg); border-radius: 50%;
-    width: 2rem; height: 2rem; font-size: 1.25rem; line-height: 1;
+    background: rgba(13,9,32,.75); border: 1px solid rgba(167,139,250,.3);
+    color: #fff; border-radius: 50%;
+    width: 2.25rem; height: 2.25rem; font-size: 1.375rem; line-height: 1;
     cursor: pointer; display: flex; align-items: center; justify-content: center;
-    transition: background .15s; z-index: 5;
+    transition: background .15s, border-color .15s; z-index: 5;
+    box-shadow: 0 2px 8px rgba(0,0,0,.4);
   }
-  .carousel-arrow:hover { background: var(--elevated); }
+  .carousel-arrow:hover { background: rgba(109,40,217,.7); border-color: rgba(167,139,250,.6); }
 
   /* ── Toast ── */
   #toast {
@@ -1241,6 +1729,218 @@ import '../styles/global.css';
     transition: color .15s; margin-bottom: 1rem;
   }
   .back-btn:hover { color: var(--fg); }
+
+  /* ── Dashboard feature cards ── */
+  .dash-feature-grid {
+    display: grid; grid-template-columns: repeat(3,1fr); gap: 1rem;
+    margin-bottom: 2rem;
+  }
+  @media (max-width: 640px) { .dash-feature-grid { grid-template-columns: 1fr; } }
+  .dash-feature-card {
+    background: var(--surface);
+    border: 1px solid var(--card-border, var(--border));
+    border-radius: 1rem; padding: 1.375rem;
+    transition: border-color .2s, transform .2s, box-shadow .2s;
+    box-shadow: inset 0 0 32px var(--card-glow, transparent);
+  }
+  .dash-feature-card:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 8px 28px rgba(0,0,0,.3), inset 0 0 32px var(--card-glow, transparent);
+  }
+  .dash-feature-icon {
+    width: 2.75rem; height: 2.75rem; border-radius: .75rem;
+    display: flex; align-items: center; justify-content: center;
+    margin-bottom: 1rem; flex-shrink: 0;
+  }
+  .dash-feature-title { font-size: 1rem; font-weight: 700; margin-bottom: .5rem; }
+  .dash-feature-desc { font-size: .875rem; color: var(--muted-fg); line-height: 1.6; }
+
+  /* ── Campaigns ── */
+  .camp-accordion {
+    background: var(--surface); border: 1px solid rgba(109,40,217,.3);
+    border-radius: .875rem; margin-bottom: 1rem; overflow: hidden;
+  }
+  .camp-accordion-btn {
+    width: 100%; display: flex; align-items: center; gap: .625rem;
+    padding: .875rem 1.125rem; background: none; border: none;
+    color: var(--fg); font-size: .9375rem; font-weight: 500;
+    cursor: pointer; text-align: left; font-family: inherit;
+  }
+  .camp-form-grid {
+    display: grid; grid-template-columns: 1fr 1fr; gap: 1.25rem;
+  }
+  @media (max-width: 640px) { .camp-form-grid { grid-template-columns: 1fr; } }
+  .camp-upload-area {
+    border: 1.5px dashed rgba(196,181,253,.2);
+    border-radius: .875rem; background: rgba(196,181,253,.03);
+    display: flex; flex-direction: column; align-items: center; justify-content: center;
+    padding: 2rem 1rem; cursor: pointer; transition: border-color .2s, background .2s;
+    min-height: 11rem; text-align: center;
+  }
+  .camp-upload-area:hover { border-color: rgba(167,139,250,.4); background: rgba(109,40,217,.05); }
+  .camp-textarea {
+    width: 100%; flex: 1;
+    background: var(--bg); border: 1px solid var(--border);
+    border-radius: .75rem; padding: .75rem .875rem;
+    color: var(--fg); font-size: .875rem; resize: none; outline: none;
+    font-family: inherit; line-height: 1.6; transition: border-color .15s;
+    min-height: 11rem;
+  }
+  .camp-textarea:focus { border-color: rgba(167,139,250,.4); }
+  .camp-textarea::placeholder { color: rgba(196,181,253,.3); }
+
+  /* ── Profile ── */
+  .profile-grid {
+    display: grid; grid-template-columns: 18rem 1fr; gap: 1.25rem; align-items: start;
+  }
+  @media (max-width: 900px) { .profile-grid { grid-template-columns: 1fr; } }
+  .profile-section-title {
+    font-size: 1rem; font-weight: 700;
+    border-left: 3px solid var(--accent-lt); padding-left: .75rem;
+    margin-bottom: 1.25rem;
+  }
+  .profile-form-grid {
+    display: grid; grid-template-columns: 1fr 1fr; gap: 1rem;
+    margin-bottom: 1rem;
+  }
+  @media (max-width: 640px) { .profile-form-grid { grid-template-columns: 1fr; } }
+  .profile-input-wrap {
+    position: relative; display: flex; align-items: center;
+  }
+  .profile-input-icon {
+    position: absolute; left: .75rem; color: var(--muted-fg); pointer-events: none; flex-shrink: 0;
+  }
+  .profile-input {
+    width: 100%; padding: .625rem .875rem .625rem 2.25rem;
+    background: var(--bg); border: 1px solid var(--border);
+    border-radius: .75rem; color: var(--fg); font-size: .875rem;
+    outline: none; font-family: inherit; transition: border-color .15s;
+  }
+  .profile-input:focus { border-color: rgba(167,139,250,.4); }
+  .activity-row {
+    display: flex; align-items: center; gap: .625rem;
+    padding: .625rem .75rem; border-radius: .625rem;
+    background: var(--bg); border: 1px solid var(--border);
+  }
+  .activity-icon {
+    width: 1.75rem; height: 1.75rem; border-radius: .5rem;
+    background: var(--accent-s); display: flex; align-items: center; justify-content: center;
+    color: var(--accent-lt); flex-shrink: 0;
+  }
+  .pro-plan-card {
+    background: linear-gradient(135deg, rgba(109,40,217,.15) 0%, rgba(168,85,247,.07) 100%);
+    border-color: rgba(109,40,217,.3) !important;
+  }
+
+  /* Instagram section */
+  .ig-connected-box {
+    background: var(--bg); border: 1px solid var(--border);
+    border-radius: .875rem; padding: 1rem; margin-bottom: 1.25rem;
+  }
+  .ig-dot-green {
+    width: .5rem; height: .5rem; border-radius: 50%;
+    background: #34d399; display: inline-block; flex-shrink: 0;
+  }
+  .ig-profile-row {
+    display: flex; align-items: center; gap: .875rem;
+    padding: .875rem 0; border-bottom: 1px solid var(--border); margin-bottom: 1rem;
+  }
+  .ig-avatar {
+    width: 3rem; height: 3rem; border-radius: 50%;
+    background: var(--surface); border: 2px solid var(--border);
+    display: flex; align-items: center; justify-content: center; flex-shrink: 0;
+    overflow: hidden;
+  }
+  .ig-stats-grid {
+    display: grid; grid-template-columns: repeat(4,1fr); gap: .5rem; margin-bottom: 1rem;
+  }
+  @media (max-width: 640px) { .ig-stats-grid { grid-template-columns: repeat(2,1fr); } }
+  .ig-stat-cell {
+    background: var(--bg); border: 1px solid var(--border);
+    border-radius: .75rem; padding: .625rem .5rem;
+    display: flex; flex-direction: column; align-items: center; gap: .2rem;
+    text-align: center;
+  }
+  .ig-stat-label { font-size: .625rem; color: var(--muted-fg); }
+  .ig-stat-val { font-size: 1.0625rem; font-weight: 700; }
+  .ig-stat-sub { font-size: .5625rem; color: var(--muted-fg); }
+  .ig-posts-grid {
+    display: grid; grid-template-columns: repeat(3,1fr); gap: .375rem;
+  }
+  .ig-post-thumb {
+    aspect-ratio: 1/1; border-radius: .5rem; overflow: hidden;
+    background: var(--surface);
+  }
+
+  /* ── Settings ── */
+  .settings-layout {
+    display: grid; grid-template-columns: 13rem 1fr; gap: 1.25rem; align-items: start;
+  }
+  @media (max-width: 768px) { .settings-layout { grid-template-columns: 1fr; } }
+  .settings-subnav {
+    padding: .5rem; display: flex; flex-direction: column; gap: .125rem;
+  }
+  .settings-nav-item {
+    width: 100%; display: flex; align-items: center; gap: .625rem;
+    padding: .625rem .875rem; border-radius: .75rem;
+    background: none; border: none; color: var(--muted-fg);
+    font-size: .9rem; font-weight: 500; cursor: pointer;
+    text-align: left; font-family: inherit; transition: background .15s, color .15s;
+  }
+  .settings-nav-item:hover:not(.active) { background: var(--muted-bg); color: var(--fg); }
+  .settings-nav-item.active { background: var(--accent-s); color: var(--accent-lt); }
+  .settings-section {
+    background: var(--surface); border: 1px solid var(--border);
+    border-radius: .875rem; overflow: hidden;
+  }
+  .settings-section-hd {
+    display: flex; align-items: center; gap: .875rem;
+    padding: 1rem 1.25rem; border-bottom: 1px solid var(--border);
+  }
+  .settings-section-icon {
+    width: 2.25rem; height: 2.25rem; border-radius: .625rem;
+    background: var(--accent-s); display: flex; align-items: center; justify-content: center;
+    color: var(--accent-lt); flex-shrink: 0;
+  }
+  .theme-cards-grid {
+    display: grid; grid-template-columns: repeat(3,1fr); gap: 1rem;
+  }
+  @media (max-width: 640px) { .theme-cards-grid { grid-template-columns: 1fr; } }
+  .theme-card {
+    border: 1px solid var(--border); border-radius: .875rem;
+    padding: .875rem; cursor: pointer;
+    transition: border-color .2s, background .2s;
+  }
+  .theme-card:hover { border-color: rgba(167,139,250,.4); }
+  .theme-card.active { border-color: var(--accent-lt); background: var(--accent-s); }
+  .theme-preview {
+    border-radius: .5rem; padding: .875rem .75rem;
+    height: 4.5rem; border: 1px solid rgba(255,255,255,.06);
+  }
+  .theme-dot {
+    width: .875rem; height: .875rem; border-radius: 50%;
+    border: 2px solid var(--border); flex-shrink: 0; margin-top: .25rem;
+    transition: background .15s, border-color .15s;
+  }
+  .active-dot { background: var(--accent-lt); border-color: var(--accent-lt); }
+  .notif-toggle-row {
+    display: flex; align-items: center; justify-content: space-between; gap: 1rem;
+    padding: .75rem 0; border-bottom: 1px solid var(--border);
+    cursor: pointer;
+  }
+  .notif-toggle-row:last-child { border-bottom: none; }
+  .toggle-switch {
+    width: 2.75rem; height: 1.5rem; border-radius: 9999px;
+    background: var(--border); position: relative; flex-shrink: 0;
+    cursor: pointer; transition: background .2s;
+  }
+  .toggle-switch.on { background: var(--accent); }
+  .toggle-knob {
+    position: absolute; top: .1875rem; left: .1875rem;
+    width: 1.125rem; height: 1.125rem; border-radius: 50%;
+    background: #fff; transition: transform .2s;
+  }
+  .toggle-switch.on .toggle-knob { transform: translateX(1.25rem); }
 </style>
 
 <!-- ═══════════════════════════════════════════
@@ -1250,7 +1950,7 @@ import '../styles/global.css';
   // ── State ──────────────────────────────────────────────
   let sidebarCollapsed = false;
   let currentView = 'dashboard';
-  let selectedImageSrc = '/demo-photo.avif';
+  let selectedImageSrc = '/photos-generated/non-AI.jpeg';
   let composerHasImage = false;
   let aiEnabled = true;
   let settingsOpen = false;
@@ -1260,9 +1960,9 @@ import '../styles/global.css';
 
   // Caption & hashtag data
   const CAPTIONS = [
-    '✨ Her günü özel kıl. Yeni koleksiyonumuzla tarzını yansıt. Bio\'daki linke tıklayarak alışverişe başla! 🌟',
-    '🔥 Yeni sezon, yeni sen. Güven ve konfor için tasarlanan parçalarımızı keşfet. Link bio\'da! 💫',
-    '💫 Stil, senden önce konuşur. En yeni gelenlerimizi incele ve her kombini bir ifadeye dönüştür. 👗 Bio linki!',
+    'Bu haki renkli crop ceket, dantel kollarıyla sıradan utility stilini bambaşka bir seviyeye taşıyor! Hem zarif hem de özgün bir görünüm sunan bu parça, gardırobunuzun favorisi olacak. ✨ #CropCeket #DantelCeket #UtilityStyle #FashionGoals',
+    'Zarif dantel kollar ve modern kesimiyle bu haki crop ceket, gardırobunuzun en şık parçası olacak. Minimalist bir estetikle maksimum etki yaratan bu tasarım sizin için. 🌿 #Ceket #MinimalStil #ElegantFashion #DantelDetay',
+    'Sıradanlığa meydan oku! ✨ Bu haki crop utility ceket, göz alıcı dantel kolları ve iddialı detaylarıyla tüm dikkatleri üzerine çekecek. Güçlü ve özgün bir görünüm için doğru seçim. 💪 #PowerDressing #StatementPiece #CeketModelleri #DantelKol',
   ];
   const HASHTAG_SETS = [
     ['moda','stil','ootd','yenikolleksiyon','instamoda','trend','günlükkombin','modablogger'],
@@ -1276,10 +1976,12 @@ import '../styles/global.css';
 
   // Preview slots
   const PREVIEW_SLOTS = [
-    { label: 'Düz Çekim',    src: '/demo-photo.avif', filter: 'brightness(1.05) saturate(1.1)' },
-    { label: 'Model Dene',   src: '/demo-post.png',   filter: '' },
-    { label: 'Kullanımda',   src: '/demo-photo.avif', filter: 'hue-rotate(10deg) saturate(1.2)' },
-    { label: 'Fotoğraf Çekimi', src: '/demo-post.png', filter: 'contrast(1.1) brightness(.92)' },
+    { label: 'Model Dene',      src: '/photos-generated/01.png', filter: '' },
+    { label: 'Düz Çekim',      src: '/photos-generated/02.png', filter: '' },
+    { label: 'Kolaj',           src: '/photos-generated/03.png', filter: '' },
+    { label: 'Arka Görünüm',   src: '/photos-generated/04.png', filter: '' },
+    { label: 'Fotoğraf Çekimi',src: '/photos-generated/05.png', filter: '' },
+    { label: 'Reklam',          src: '/photos-generated/06.png', filter: '' },
   ];
   let selectedPreviewSlots = [];
   let editorSlideIdx = 0;
@@ -1332,13 +2034,13 @@ import '../styles/global.css';
       bc.classList.remove('hidden');
       let html = '';
       const paths = {
-        create: { parents: [['Ana Sayfa','dashboard']], label: 'Oluştur+' },
-        preview: { parents: [['Ana Sayfa','dashboard'],['Oluştur+','create']], label: 'Önizleme' },
-        editor: { parents: [['Ana Sayfa','dashboard'],['Oluştur+','create'],['Önizleme','preview']], label: 'Düzenle' },
-        scheduled: { parents: [['Ana Sayfa','dashboard']], label: 'Planlanan' },
-        campaigns: { parents: [['Ana Sayfa','dashboard']], label: 'Kampanyalar' },
-        profile:   { parents: [['Ana Sayfa','dashboard']], label: 'Profil' },
-        settings:  { parents: [['Ana Sayfa','dashboard']], label: 'Ayarlar' },
+        create: { parents: [['Kontrol Paneli','dashboard']], label: 'Oluştur+' },
+        preview: { parents: [['Kontrol Paneli','dashboard'],['Oluştur+','create']], label: 'Önizleme' },
+        editor: { parents: [['Kontrol Paneli','dashboard'],['Oluştur+','create'],['Önizleme','preview']], label: 'Düzenle' },
+        scheduled: { parents: [['Kontrol Paneli','dashboard']], label: 'Planlananlar' },
+        campaigns: { parents: [['Kontrol Paneli','dashboard']], label: 'Kampanyalar' },
+        profile:   { parents: [['Kontrol Paneli','dashboard']], label: 'Profil' },
+        settings:  { parents: [['Kontrol Paneli','dashboard']], label: 'Ayarlar' },
       };
       const crumb = paths[key];
       if (crumb) {
@@ -1412,10 +2114,10 @@ import '../styles/global.css';
 
   function removeComposerImage() {
     composerHasImage = false;
-    selectedImageSrc = '/demo-photo.avif';
+    selectedImageSrc = '/demo-jacket.png';
     document.getElementById('composer-thumb').classList.add('hidden');
     document.querySelectorAll('.preset-btn').forEach(b => b.classList.remove('selected'));
-    document.getElementById('continue-btn-text').textContent = 'Fotoğraf Seç';
+    document.getElementById('continue-btn-text').textContent = 'Görsel Yükle';
     document.getElementById('continue-img-icon').style.display = '';
   }
 
@@ -1520,7 +2222,7 @@ import '../styles/global.css';
     buildHashtags(document.getElementById('preview-hashtags'));
 
     // Staggered reveal
-    const revealTimes = [900, 1800, 2800, 3700];
+    const revealTimes = [800, 1400, 2000, 2600, 3200, 3800];
     revealTimes.forEach((delay, i) => {
       setTimeout(() => {
         const skel = document.getElementById('pvskel-' + i);
@@ -1561,6 +2263,10 @@ import '../styles/global.css';
       badge.textContent = order + 1;
       s.appendChild(badge);
     });
+
+    // Update selection label
+    const lbl = document.getElementById('preview-sel-label');
+    if (lbl) lbl.textContent = `GÖRSEL SEÇ — ${selectedPreviewSlots.length} SEÇİLİ`;
   }
 
   function buildHashtags(container) {
@@ -1593,8 +2299,9 @@ import '../styles/global.css';
   function gotoEditor() {
     if (selectedPreviewSlots.length === 0) selectedPreviewSlots = [0];
 
-    editorImages = selectedPreviewSlots.map(i => PREVIEW_SLOTS[i]);
-    editorSlideIdx = 0;
+    // Show ALL photos in carousel so user can swipe through like Instagram
+    editorImages = [...PREVIEW_SLOTS];
+    editorSlideIdx = selectedPreviewSlots[0] ?? 0;
 
     gotoView('editor');
     updateEditorSlide();
@@ -1606,7 +2313,6 @@ import '../styles/global.css';
 
     buildHashtags(document.getElementById('editor-hashtags'));
 
-    // Slide indicator
     buildSlideIndicator();
   }
 
@@ -1627,15 +2333,34 @@ import '../styles/global.css';
   function buildSlideIndicator() {
     const ind = document.getElementById('editor-slide-indicator');
     if (!ind || editorImages.length <= 1) { if (ind) ind.innerHTML = ''; return; }
-    ind.innerHTML = editorImages.map((_, i) =>
-      `<div style="width:.5rem;height:.5rem;border-radius:50%;background:${i===editorSlideIdx ? '#A78BFA' : 'rgba(167,139,250,.3)'};transition:background .2s"></div>`
-    ).join('');
+    const selectedSrcs = new Set(selectedPreviewSlots.map(i => PREVIEW_SLOTS[i]?.src));
+    ind.innerHTML = editorImages.map((img, i) => {
+      const isCurrent = i === editorSlideIdx;
+      const isSelected = selectedSrcs.has(img.src);
+      const bg = isCurrent ? '#A78BFA' : isSelected ? 'rgba(167,139,250,.55)' : 'rgba(255,255,255,.25)';
+      const size = isCurrent ? '.55rem' : '.4rem';
+      return `<div style="width:${size};height:${size};border-radius:50%;background:${bg};transition:all .2s"></div>`;
+    }).join('');
   }
 
   function editorCarousel(dir) {
     editorSlideIdx = (editorSlideIdx + dir + editorImages.length) % editorImages.length;
     updateEditorSlide();
   }
+
+  // Touch swipe support for editor carousel
+  (function() {
+    let touchStartX = 0;
+    document.addEventListener('DOMContentLoaded', () => {
+      const wrap = document.getElementById('editor-img-wrap');
+      if (!wrap) return;
+      wrap.addEventListener('touchstart', e => { touchStartX = e.touches[0].clientX; }, { passive: true });
+      wrap.addEventListener('touchend', e => {
+        const dx = e.changedTouches[0].clientX - touchStartX;
+        if (Math.abs(dx) > 40) editorCarousel(dx < 0 ? 1 : -1);
+      }, { passive: true });
+    });
+  })();
 
   function updateCharCount() {
     const ta = document.getElementById('editor-caption');
@@ -1703,29 +2428,6 @@ import '../styles/global.css';
   }
 
   function backToDashboard() {
-    document.getElementById('stat-published').textContent = publishedCount;
-    document.getElementById('pub-count').textContent = `(${publishedCount})`;
-
-    // Inject new published card
-    const grid = document.getElementById('published-grid');
-    const src = editorImages[0]?.src || selectedImageSrc;
-    const filter = editorImages[0]?.filter || '';
-    const caption = currentCaption.slice(0, 36) + '…';
-    const card = document.createElement('div');
-    card.className = 'post-card';
-    card.style.animation = 'fadeIn .4s ease-out';
-    card.style.borderColor = 'rgba(167,139,250,.45)';
-    card.innerHTML = `
-      <div class="post-thumb">
-        <img src="${src}" class="thumb-img" style="filter:${filter}" alt="Yeni gönderi"/>
-        <span class="post-badge badge-published">Az önce ✨</span>
-      </div>
-      <div class="post-info">
-        <p class="post-title">${caption}</p>
-        <p class="post-date">Az önce</p>
-      </div>`;
-    grid.insertBefore(card, grid.firstChild);
-
     // Reset create flow state
     resetCreateFlow();
     gotoView('dashboard');
@@ -1733,12 +2435,12 @@ import '../styles/global.css';
 
   function resetCreateFlow() {
     composerHasImage = false;
-    selectedImageSrc = '/demo-photo.avif';
+    selectedImageSrc = '/demo-jacket.png';
     selectedPreviewSlots = [];
     editorImages = [];
     editorSlideIdx = 0;
     document.getElementById('composer-thumb').classList.add('hidden');
-    document.getElementById('continue-btn-text').textContent = 'Fotoğraf Seç';
+    document.getElementById('continue-btn-text').textContent = 'Görsel Yükle';
     document.getElementById('continue-img-icon').style.display = '';
     document.getElementById('composer-textarea').value = '';
     document.querySelectorAll('.preset-btn').forEach(b => b.classList.remove('selected'));
@@ -1748,6 +2450,76 @@ import '../styles/global.css';
     document.getElementById('ai-settings-panel').classList.add('hidden');
     settingsOpen = false;
     presetPickerOpen = false;
+  }
+
+  // ── Campaigns ────────────────────────────────────────────
+  function toggleCampTips() {
+    const body = document.getElementById('camp-tips-body');
+    const chevron = document.getElementById('camp-tips-chevron');
+    const collapsed = body.classList.toggle('collapsed');
+    chevron.classList.toggle('collapsed', collapsed);
+  }
+  function onCampDescInput(el) {
+    const len = el.value.length;
+    document.getElementById('camp-char-count').textContent = len;
+    const btn = document.getElementById('create-story-btn');
+    if (len > 0) {
+      btn.disabled = false;
+      btn.style.opacity = '1';
+      btn.style.cursor = 'pointer';
+    } else {
+      btn.disabled = true;
+      btn.style.opacity = '.45';
+      btn.style.cursor = 'not-allowed';
+    }
+  }
+  function simulateCampaignCreate() {
+    const btn = document.getElementById('create-story-btn');
+    btn.disabled = true;
+    btn.innerHTML = `<svg style="animation:spin 1s linear infinite" xmlns="http://www.w3.org/2000/svg" width="14" height="14" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 4v5h.582m15.356 2A8.001 8.001 0 004.582 9m0 0H9m11 11v-5h-.581m0 0a8.003 8.003 0 01-15.357-2m15.357 2H15"/></svg> Oluşturuluyor…`;
+    setTimeout(() => {
+      btn.innerHTML = `<svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 3l14 9-14 9V3z"/></svg> Hikaye Oluştur`;
+      btn.disabled = true;
+      btn.style.opacity = '.45';
+      document.getElementById('campaign-desc').value = '';
+      document.getElementById('camp-char-count').textContent = '0';
+      showToast('Kampanya hikayesi oluşturuldu ✓', 'Gerçek uygulamada Instagram\'a gönderilir');
+    }, 2000);
+  }
+
+  // ── Settings tabs ─────────────────────────────────────────
+  const ALWAYS_VISIBLE_TABS = ['general','appearance','notifications'];
+  function switchSettingsTab(btn) {
+    const tab = btn.dataset.stab;
+    document.querySelectorAll('.settings-nav-item').forEach(b => b.classList.remove('active'));
+    btn.classList.add('active');
+    // For main 3 tabs: show all 3 always; for others show only that one
+    const allSections = ['general','appearance','notifications','billing','security','whatsapp'];
+    if (ALWAYS_VISIBLE_TABS.includes(tab)) {
+      allSections.forEach(id => {
+        const el = document.getElementById('stab-' + id);
+        if (el) el.classList.toggle('hidden', !ALWAYS_VISIBLE_TABS.includes(id));
+      });
+    } else {
+      allSections.forEach(id => {
+        const el = document.getElementById('stab-' + id);
+        if (el) el.classList.toggle('hidden', id !== tab);
+      });
+    }
+  }
+  function selectTheme(card) {
+    document.querySelectorAll('.theme-card').forEach(c => {
+      c.classList.remove('active');
+      const dot = c.querySelector('.theme-dot');
+      if (dot) { dot.classList.remove('active-dot'); }
+    });
+    card.classList.add('active');
+    const dot = card.querySelector('.theme-dot');
+    if (dot) dot.classList.add('active-dot');
+    showToast('Tema değiştirildi','Demo modunda görsel değişim uygulanmaz');
+  }
+  function toggleNotif(sw) {
+    sw.classList.toggle('on');
   }
 
   // ── Toast ────────────────────────────────────────────────
